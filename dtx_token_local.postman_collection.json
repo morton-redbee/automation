@@ -1,0 +1,182 @@
+{
+  "variables": [],
+  "info": {
+    "name": "Pago tx distribuida automation",
+    "_postman_id": "121a5f0a-276a-9dd0-0776-401b14e066c7",
+    "description": "",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1 - QAPI create subsite",
+      "request": {
+        "url": "http://{{base_url}}:{{port_qapi}}/sites/subsites",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"site\":\"03101980\",\n\"subsites\":[\n\"03101981\",\n\"03101982\"]}"
+        },
+        "description": "POST call to create subsites in a certain site"
+      },
+      "response": []
+    },
+    {
+      "name": "2 - Replicate site",
+      "request": {
+        "url": "http://localhost:{{port_replication}}/replication/site/03101980",
+        "method": "GET",
+        "header": [
+          {
+            "key": "//Content-Type",
+            "value": "application/json",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "//apikey",
+            "value": "{{keypublic}}",
+            "description": "",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "3 - Tokens",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"token\", jsonData.id)",
+              "postman.setEnvironmentVariable(\"bin\", jsonData.bin)"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{base_url}}:{{port_payments}}/tokens",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          },
+          {
+            "key": "apikey",
+            "value": "{{keypublic}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "4 - Payments CS",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "console.log(request);",
+              "console.log(responseBody)",
+              "var jsonData = JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"chargeId\", jsonData.id)"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "url": "http://{{base_url}}:{{port_payments}}/payments",
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          },
+          {
+            "key": "apikey",
+            "value": "{{keyprivate}}",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"user_id\":\"newman\",\n\"site_transaction_id\":\"auto visa {{$timestamp}}\",\n\"token\":\"{{token}}\",\n\"payment_method_id\":1,\n\"bin\":\"{{bin}}\",\n\"amount\":2000,\n\"currency\":\"ARS\",\n\"installments\":1,\n\"description\":\"Prueba QA\",\n\"payment_type\":\"distributed\",\n\"establishment_name\":\"prueba desa soft\",\n\"sub_payments\":[\n{\n\"site_id\":\"03101981\",\n\"installments\":5,\n\"amount\":1000\n},\n{\n\"site_id\":\"03101982\",\n\"installments\":5,\n\"amount\":1000}\n]\n}"
+        },
+        "description": ""
+      },
+      "response": []
+    },
+    {
+      "name": "5 - QAPI delete subsites",
+      "request": {
+        "url": "http://{{base_url}}:{{port_qapi}}/sites/subsites",
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "description": ""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\"site\":\"03101980\",\n\"subsites\":[\n\"03101981\",\n\"03101982\"]}"
+        },
+        "description": "DELETE call to delete subsites in a certain site"
+      },
+      "response": []
+    },
+    {
+      "name": "6 - Replicate site",
+      "request": {
+        "url": "http://localhost:{{port_replication}}/replication/site/03101980",
+        "method": "GET",
+        "header": [
+          {
+            "key": "//Content-Type",
+            "value": "application/json",
+            "description": "",
+            "disabled": true
+          },
+          {
+            "key": "//apikey",
+            "value": "{{keypublic}}",
+            "description": "",
+            "disabled": true
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "description": ""
+      },
+      "response": []
+    }
+  ]
+}

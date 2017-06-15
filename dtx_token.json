@@ -1,0 +1,192 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Pago tx distribuida automation",
+		"_postman_id": "121a5f0a-276a-9dd0-0776-401b14e066c7",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - QAPI create subsites",
+			"request": {
+				"url": "http://localhost:10115/sites/subsites",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"site\": \"{{site}}\",\n   \"subsites\": {{subsites}}\n}"
+				},
+				"description": "POST call to create subsites in a certain site"
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Replicate site",
+			"request": {
+				"url": "http://localhost:19000/replication/site/{{site}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "//Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "//apikey",
+						"value": "{{keypublic}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2 - Tokens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:{{port}}/tokens",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "apikey",
+						"value": "{{keypublic}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3 - Payments CS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable(\"glsubsites\", JSON.parse(environment.subsites));",
+							"globals.glsubsites = globals.glsubsites.split(',');",
+							"postman.setEnvironmentVariable(\"subsite1\", globals.glsubsites[0]);",
+							"postman.setEnvironmentVariable(\"subsite2\", globals.glsubsites[1]);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://localhost:{{port}}/payments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "apikey",
+						"value": "{{keyprivate}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"user_id\": \"newman\",\n   \"site_transaction_id\": \"newman visa dtx {{$timestamp}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Auto QA test\",\n   \"payment_type\": \"distributed\",\n   \"establishment_name\" : \"auto desa soft\",\n   \"sub_payments\": [\n      {\n         \"site_id\": \"{{subsite1}}\",\n         \"installments\": 5,\n         \"amount\": 12000\n      },\n      {\n         \"site_id\": \"{{subsite2}}\",\n         \"installments\": 6,\n         \"amount\": 8000\n      }\n    ]\n }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "4 - QAPI delete subsites",
+			"request": {
+				"url": "http://localhost:10115/sites/subsites",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"site\": \"{{site}}\",\n   \"subsites\": {{subsites}}\n}"
+				},
+				"description": "POST call to create subsites in a certain site"
+			},
+			"response": []
+		},
+		{
+			"name": "5 - Replicate site",
+			"request": {
+				"url": "http://localhost:19000/replication/site/{{site}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "//Content-Type",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "//apikey",
+						"value": "{{keypublic}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
