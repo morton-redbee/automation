@@ -4,7 +4,7 @@ var fs = require('fs');
 var res
 
 collection_file = '/dtx_token.postman_collection.json';
-environment_file = '/desa_all_local.postman_environment.json';
+environment_file = '/desa_all.postman_environment.json';
 parameters = require('./parameters.json');
 
 collection_path = require('path').dirname(require.main.filename) + collection_file;
