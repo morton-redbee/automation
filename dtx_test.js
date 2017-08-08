@@ -3,8 +3,8 @@ var curl = require('curlrequest');
 var fs = require('fs');
 var res
 
-collection_file = '/dtx_token_local.postman_collection.json';
-environment_file = '/desa_all.postman_environment.json';
+collection_file = '/dtx_token.postman_collection.json';
+environment_file = '/desa_all_local.postman_environment.json';
 parameters = require('./parameters.json');
 
 collection_path = require('path').dirname(require.main.filename) + collection_file;
@@ -25,8 +25,8 @@ function setParameters() {
 function editDtxTest(fileName) {
 	var file = require(fileName);
 	
-	file.item[1].request.url =  'http://localhost:{{port_replication}}/replication/site/' + site;
-	file.item[5].request.url =  'http://localhost:{{port_replication}}/replication/site/' + site;
+	file.item[1].request.url =  'http://{{base_url}}:{{port_replication}}/replication/site/' + site;
+	file.item[5].request.url =  'http://{{base_url}}:{{port_replication}}/replication/site/' + site;
 
 	var raw_payment_json = JSON.parse(file.item[3].request.body.raw);
 	

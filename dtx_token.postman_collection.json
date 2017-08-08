@@ -30,7 +30,7 @@
     {
       "name": "2 - Replicate site",
       "request": {
-        "url": "http://localhost:{{port_replication}}/replication/site/03101980",
+        "url": "http://{{base_url}}:{{port_replication}}/replication/site/03101980",
         "method": "GET",
         "header": [
           {
@@ -62,6 +62,8 @@
           "script": {
             "type": "text/javascript",
             "exec": [
+              "console.log(request);",
+              "console.log(responseBody)",
               "var jsonData = JSON.parse(responseBody);",
               "postman.setEnvironmentVariable(\"token\", jsonData.id)",
               "postman.setEnvironmentVariable(\"bin\", jsonData.bin)"
@@ -86,7 +88,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+          "raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
         },
         "description": ""
       },
@@ -154,7 +156,7 @@
     {
       "name": "6 - Replicate site",
       "request": {
-        "url": "http://localhost:{{port_replication}}/replication/site/03101980",
+        "url": "http://{{base_url}}:{{port_replication}}/replication/site/03101980",
         "method": "GET",
         "header": [
           {
