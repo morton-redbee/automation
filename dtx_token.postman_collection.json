@@ -10,7 +10,7 @@
     {
       "name": "1 - QAPI create subsite",
       "request": {
-        "url": "http://{{base_url}}:{{port_qapi}}/sites/subsites",
+        "url": "{{base_url}}:{{port_qapi}}/sites/subsites",
         "method": "POST",
         "header": [
           {
@@ -30,7 +30,7 @@
     {
       "name": "2 - Replicate site",
       "request": {
-        "url": "http://{{base_url}}:{{port_replication}}/replication/site/03101980",
+        "url": "{{base_url}}:{{port_replication}}/replication/site/03101980",
         "method": "GET",
         "header": [
           {
@@ -72,7 +72,7 @@
         }
       ],
       "request": {
-        "url": "http://{{base_url}}:{{port_payments}}/tokens",
+        "url": "{{base_url}}:{{port_payments}}/tokens",
         "method": "POST",
         "header": [
           {
@@ -111,7 +111,7 @@
         }
       ],
       "request": {
-        "url": "http://{{base_url}}:{{port_payments}}/payments",
+        "url": "{{base_url}}:{{port_payments}}/payments",
         "method": "POST",
         "header": [
           {
@@ -136,7 +136,7 @@
     {
       "name": "5 - QAPI delete subsites",
       "request": {
-        "url": "http://{{base_url}}:{{port_qapi}}/sites/subsites",
+        "url": "{{base_url}}:{{port_qapi}}/sites/subsites",
         "method": "DELETE",
         "header": [
           {
@@ -156,7 +156,7 @@
     {
       "name": "6 - Replicate site",
       "request": {
-        "url": "http://{{base_url}}:{{port_replication}}/replication/site/03101980",
+        "url": "{{base_url}}:{{port_replication}}/replication/site/03101980",
         "method": "GET",
         "header": [
           {

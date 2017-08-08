@@ -25,8 +25,8 @@ function setParameters() {
 function editDtxTest(fileName) {
 	var file = require(fileName);
 	
-	file.item[1].request.url =  'http://{{base_url}}:{{port_replication}}/replication/site/' + site;
-	file.item[5].request.url =  'http://{{base_url}}:{{port_replication}}/replication/site/' + site;
+	file.item[1].request.url =  '{{base_url}}:{{port_replication}}/replication/site/' + site;
+	file.item[5].request.url =  '{{base_url}}:{{port_replication}}/replication/site/' + site;
 
 	var raw_payment_json = JSON.parse(file.item[3].request.body.raw);
 	
