@@ -5,7 +5,7 @@ var fs = require('fs');
 command_line_parameters = process.argv;
 test_type = command_line_parameters[2];
 
-if (test_type === "dtxtest3") {
+if (test_type === "dtx3") {
 collection_file = '/dtx_token.postman_collection.json';
 }
 environment_file = '/desa_all.postman_environment.json';
@@ -88,7 +88,7 @@ function runTest() {
 // Main
 
 setParameters();
-if (test_type === "dtxtest3") {
+if (test_type === "dtx3") {
 editDtxTest(collection_path);
 }
 runTest();
