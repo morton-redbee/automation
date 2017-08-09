@@ -1,11 +1,18 @@
 var newman = require('newman');
 var curl = require('curlrequest');
 var fs = require('fs');
-var res
 
+command_line_parameters = process.argv;
+test_type = command_line_parameters[2];
+
+if (test_type === "dtxtest3") {
 collection_file = '/dtx_token.postman_collection.json';
+}
 environment_file = '/desa_all.postman_environment.json';
 parameters = require('./parameters.json');
+
+console.log(test_type);
+
 
 collection_path = require('path').dirname(require.main.filename) + collection_file;
 
@@ -50,8 +57,6 @@ function editDtxTest(fileName) {
 	raw_sites_json.site = site;
 	raw_sites_json.subsites = subsites_list;
 
-	console.log(raw_sites_json);
-
 	string_sites_raw = JSON.stringify(raw_sites_json);
 
 	escaped_string_sites_raw = string_sites_raw.escapeSpecialChars();
@@ -83,5 +88,8 @@ function runTest() {
 // Main
 
 setParameters();
+if (test_type === "dtxtest3") {
 editDtxTest(collection_path);
+}
 runTest();
+
