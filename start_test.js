@@ -9,7 +9,7 @@ if (test_type) {
 collection_file = '/' + test_type + '.postman_collection.json';
 } else {
 console.log ('no se definió el test a ejecutar');
-break;
+process.exit()
 }
 environment_file = '/desa_all.postman_environment.json';
 parameters = require('./parameters.json');

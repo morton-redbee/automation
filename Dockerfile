@@ -9,4 +9,4 @@ ADD dtx_test.js /data/
 WORKDIR /data/
 RUN npm install
 
-ENTRYPOINT ["node", "dtx_test.js"]
+ENTRYPOINT ["node", "start_test.js"]
