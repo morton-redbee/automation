@@ -4,20 +4,32 @@ var fs = require('fs');
 
 command_line_parameters = process.argv;
 test_type = command_line_parameters[2];
+environment_option = command_line_parameters[3];
 
 if (test_type) {
-collection_file = '/' + test_type + '.postman_collection.json';
+	collection_file = '/' + test_type + '.postman_collection.json';
+	if (!fs.existsSync(collection_file)) {
+		console.log ('el test indicado no existe.');
+		process.exit();
+	}
 } else {
-console.log ('no se definió el test a ejecutar');
-process.exit();
+	console.log ('no se definió el test a ejecutar');
+	process.exit();
 }
 
-if (!fs.existsSync(collection_file)) {
-console.log ('el test indicado no existe.');
-process.exit();
+
+
+if (environment_option) {
+	environment_file = '/' + environment_option + '.postman_environment.json';
+	if (!fs.existsSync(environment_file)) {
+		console.log ('la configuracion del entorno indicado no existe.');
+		process.exit();
+	}
+} else {
+	console.log ('no se definió el entorno a utilizar');
+	process.exit();
 }
 
-environment_file = '/desa_all.postman_environment.json';
 parameters = require('./parameters.json');
 
 console.log(test_type);
@@ -98,9 +110,9 @@ function runTest() {
 
 setParameters();
 if (test_type.indexOf('dtx') > -1) {
-editDtxTest(collection_path);
+	editDtxTest(collection_path);
 } else if (test_type.indexOf('stx') > -1) {
-console.log('aca iria la edicion de stx');
+	console.log('aca iria la edicion de stx');
 }
 runTest();
 
