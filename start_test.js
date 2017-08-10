@@ -9,8 +9,14 @@ if (test_type) {
 collection_file = '/' + test_type + '.postman_collection.json';
 } else {
 console.log ('no se definió el test a ejecutar');
-process.exit()
+process.exit();
 }
+
+if (!fs.existsSync(collection_file)) {
+console.log ('el test indicado no existe.');
+process.exit();
+}
+
 environment_file = '/desa_all.postman_environment.json';
 parameters = require('./parameters.json');
 
