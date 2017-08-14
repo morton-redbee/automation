@@ -10,6 +10,10 @@ ADD package.json /data/
 ADD parameters.json /data/
 ADD start_test.js /data/
 
+ENV LC_ALL=en_US.UTF-8 \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8
+
 WORKDIR /data/
 RUN npm install
 
