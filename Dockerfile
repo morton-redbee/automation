@@ -1,10 +1,14 @@
 FROM node:alpine
 
-ADD desa_all.postman_environment.json /data/
-ADD dtx_token.postman_collection.json /data/
+ADD desa_local.postman_environment.json /data/
+ADD desa_remote.postman_environment.json /data/
+ADD dtx_2_ok.postman_collection.json /data/
+ADD dtx_2_ko.postman_collection.json /data/
+ADD stx_2_ok.postman_collection.json /data/
+ADD stx_2_ko.postman_collection.json /data/
 ADD package.json /data/
 ADD parameters.json /data/
-ADD dtx_test.js /data/
+ADD start_test.js /data/
 
 WORKDIR /data/
 RUN npm install
