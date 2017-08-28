@@ -1,15 +1,23 @@
 var newman = require('newman');
 var curl = require('curlrequest');
 var fs = require('fs');
+var program = require('commander');
 
-command_line_parameters = process.argv;
-test_type = command_line_parameters[2];
-environment_option = command_line_parameters[3];
+// command_line_parameters = process.argv;
+// test_type = command_line_parameters[2];
+// environment_option = command_line_parameters[3];
 
-if (test_type) {
-	console.log('se seleccionó el test ' + test_type);
-	collection_file = '/' + test_type + '.postman_collection.json';
-	console.log(collection_file);
+program
+  .version('0.1.0')
+  .option('-t, --test [type]', 'Test a ejecutar (solo el prefijo)')
+  .option('-e, --environment [type]', 'Entorno a utilizar (solo el prefijo)')
+  .option('-s, --site [type]', 'Sitio a utilizar')
+  .option('-d, --subsites [type]', 'Subsitios a utilizar en pagos distribuidos. Separar con comas sin espacios.')
+  .parse(process.argv);
+
+if (program.test) {
+	console.log('se seleccionó el test ' + program.test);
+	collection_file = '/' + program.test + '.postman_collection.json';
 } else {
 	console.log ('no se definió el test a ejecutar. Test abortado.');
 	process.exit();
@@ -22,9 +30,8 @@ if (!fs.existsSync(collection_path)) {
 	process.exit();
 }
 
-if (environment_option) {
-	environment_file = '/' + environment_option + '.postman_environment.json';
-	console.log(environment_file);
+if (program.environment) {
+	environment_file = '/' + program.environment + '.postman_environment.json';
 } else {
 	console.log ('no se definió el entorno a utilizar. Test abortado.');
 	process.exit();
@@ -37,14 +44,18 @@ if (!fs.existsSync(environment_path)) {
 	process.exit();
 }
 
-parameters = require('./parameters.json');
-
 function setParameters() {		
-	if (parameters.site) {
-		site = parameters.site;
+	if (program.site) {
+		site = program.site;
+		console.log('El site a utilizar es ' + program.site);	
+	} else {
+		console.log('No se recibio un site, se va a utilizar el configurado por default en el test ');
 	}
-	if (parameters.subsites) {
-		subsites_list = parameters.subsites.toString().split(',');		
+	if (program.subsites) {
+		subsites_list = program.subsites.toString().split(',');
+		console.log('Los subsites a utilizar son ' + program.subsites);			
+	} else {
+		console.log('No se recibieron subsites, se van a utilizar los configurados por default en el test ');	
 	}
 }
 
@@ -68,7 +79,7 @@ function editDtxTest(fileName) {
 		raw_payment_json.sub_payments[i].site_id = subsites_list[i];
 		raw_payment_json.sub_payments[i].installments = 5;
 		raw_payment_json.sub_payments[i].amount = 1000;			
-		console.log('agregado el subsite');	
+		console.log('agregado el subsite ' + subsites_list[i]);	
 	}
 
 	string_payment_raw = JSON.stringify(raw_payment_json);
@@ -138,9 +149,9 @@ function runTest() {
 // Main
 
 setParameters();
-if (test_type.indexOf('dtx') > -1) {
+if (program.test.indexOf('dtx') > -1) {
 	editDtxTest(collection_path);
-} else if (test_type.indexOf('stx') > -1) {
+} else if (program.test.indexOf('stx') > -1) {
 	editStxTest(collection_path);
 }
 runTest();

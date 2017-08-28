@@ -21,7 +21,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\"site\":\"03101980\",\n\"subsites\":[\n\"03101981\",\n\"03101982\"]}"
+          "raw": "{\n\"site\":\"03101986\",\n\"subsites\":[\n\"03101987\",\n\"03101988\"]}"
         },
         "description": "POST call to create subsites in a certain site"
       },
@@ -30,7 +30,7 @@
     {
       "name": "2 - Replicate site",
       "request": {
-        "url": "{{base_url}}:{{port_replication}}/replication/site/03101980",
+        "url": "{{base_url}}:{{port_replication}}/replication/site/03101986",
         "method": "GET",
         "header": [
           {
@@ -127,7 +127,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\"user_id\":\"newman\",\n\"site_transaction_id\":\"auto visa {{$timestamp}}\",\n\"token\":\"{{token}}\",\n\"payment_method_id\":1,\n\"bin\":\"{{bin}}\",\n\"amount\":2000,\n\"currency\":\"ARS\",\n\"installments\":1,\n\"description\":\"Prueba QA\",\n\"payment_type\":\"distributed\",\n\"establishment_name\":\"prueba desa soft\",\n\"sub_payments\":[\n{\n\"site_id\":\"03101981\",\n\"installments\":5,\n\"amount\":1000\n},\n{\n\"site_id\":\"03101982\",\n\"installments\":5,\n\"amount\":1000}\n]\n}"
+          "raw": "{\n\"user_id\":\"newman\",\n\"site_transaction_id\":\"auto visa {{$timestamp}}\",\n\"token\":\"{{token}}\",\n\"payment_method_id\":1,\n\"bin\":\"{{bin}}\",\n\"amount\":2000,\n\"currency\":\"ARS\",\n\"installments\":1,\n\"description\":\"Prueba QA\",\n\"payment_type\":\"distributed\",\n\"establishment_name\":\"prueba desa soft\",\n\"sub_payments\":[\n{\n\"site_id\":\"03101987\",\n\"installments\":5,\n\"amount\":1000\n},\n{\n\"site_id\":\"03101988\",\n\"installments\":5,\n\"amount\":1000}\n]\n}"
         },
         "description": ""
       },
@@ -147,7 +147,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\"site\":\"03101980\",\n\"subsites\":[\n\"03101981\",\n\"03101982\"]}"
+          "raw": "{\n\"site\":\"03101986\",\n\"subsites\":[\n\"03101987\",\n\"03101988\"]}"
         },
         "description": "DELETE call to delete subsites in a certain site"
       },
@@ -156,7 +156,7 @@
     {
       "name": "6 - Replicate site",
       "request": {
-        "url": "{{base_url}}:{{port_replication}}/replication/site/03101980",
+        "url": "{{base_url}}:{{port_replication}}/replication/site/03101986",
         "method": "GET",
         "header": [
           {
