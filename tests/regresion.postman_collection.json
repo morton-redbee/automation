@@ -209,8 +209,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -249,7 +249,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -357,8 +357,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -397,7 +397,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -505,8 +505,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -545,7 +545,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -760,8 +760,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -800,7 +800,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1051,8 +1051,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1091,7 +1091,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1268,8 +1268,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1308,7 +1308,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';"
@@ -1348,8 +1348,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1388,7 +1388,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';",
@@ -1499,8 +1499,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1539,7 +1539,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';"
@@ -1579,8 +1579,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1619,7 +1619,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';",
@@ -1730,8 +1730,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1770,7 +1770,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';"
@@ -1810,8 +1810,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -1850,7 +1850,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';",
@@ -1961,8 +1961,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -2001,7 +2001,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';"
@@ -2041,8 +2041,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -2081,7 +2081,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';",
@@ -2192,8 +2192,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -2232,7 +2232,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';"
@@ -2272,8 +2272,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -2312,7 +2312,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is green\"] = jsonData.fraud_detection.status.decision === 'green';",
@@ -2354,8 +2354,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"bin\", jsonData.bin)",
+							"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;"
 						]
@@ -2394,7 +2394,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status code is 200\"] = responseCode.code === 201;",
 							"tests[\"CS decision status is yellow\"] = jsonData.fraud_detection.status.decision === 'yellow';",
@@ -2499,7 +2499,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
@@ -2540,7 +2540,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
 							"tests[\"Status child 1 is rejected\"] = jsonData.sub_payments[0].status === 'rejected';",
@@ -2581,7 +2581,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
 							"tests[\"Status child 1 is group_annulled\"] = jsonData.sub_payments[0].status === 'group_annulled';",
@@ -2685,8 +2685,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
@@ -2727,8 +2727,8 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
@@ -2769,7 +2769,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';",
 							"tests[\"Status child 1 is annulled\"] = jsonData.sub_payments[0].status === 'annulled';",
@@ -2810,7 +2810,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
@@ -2851,7 +2851,7 @@
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
 							"tests[\"Status is review\"] = jsonData.status === 'review';"
 						]
