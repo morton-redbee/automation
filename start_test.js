@@ -172,16 +172,20 @@ function runTest() {
 		}, function (err) {
 	    	if (err) { throw err; }
 	    	console.log('El test fue ejecutado por completo');
-	});
+	})
 }
 
 // Main
 
-setParameters();
-if (program.distributed && program.site && program.subsites) {
-	editDtxTest(collection_path);
-} else if (program.site) {
-	// editStxTest(collection_path);
+if (program.test == 'regresion') {
+	console.log('Los parámetros no pueden alterarse durante una regresión.');	
+} else {
+	setParameters();
+	if (program.distributed && program.site && program.subsites) {
+		editDtxTest(collection_path);
+	} else if (program.site) {
+		// editStxTest(collection_path);
+	}
 }
 runTest();
 
