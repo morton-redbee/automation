@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "REGRESION",
-		"_postman_id": "f49269c7-b786-c86a-e8ec-db036a0042ac",
+		"_postman_id": "7a9e37f6-9484-0b97-3a79-c7390ac9d6fa",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -21,7 +21,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "DELETE",
 				"header": [
 					{
@@ -52,7 +52,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/subsites",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/subsites",
 				"method": "DELETE",
 				"header": [
 					{
@@ -83,7 +83,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/porcentaje",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/porcentaje",
 				"method": "DELETE",
 				"header": [
 					{
@@ -114,7 +114,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/dospasos",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/dospasos",
 				"method": "DELETE",
 				"header": [
 					{
@@ -145,7 +145,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/agregador",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/agregador",
 				"method": "DELETE",
 				"header": [
 					{
@@ -176,7 +176,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -218,7 +218,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -257,7 +257,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -293,7 +293,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/subsites",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/subsites",
 				"method": "POST",
 				"header": [
 					{
@@ -324,7 +324,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -366,7 +366,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -405,7 +405,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -441,7 +441,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/porcentaje",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/porcentaje",
 				"method": "POST",
 				"header": [
 					{
@@ -472,7 +472,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -514,7 +514,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -553,7 +553,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -589,7 +589,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/porcentaje",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/porcentaje",
 				"method": "DELETE",
 				"header": [
 					{
@@ -620,7 +620,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -658,7 +658,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/dospasos",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/dospasos",
 				"method": "POST",
 				"header": [
 					{
@@ -689,7 +689,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -727,7 +727,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/MedioPago",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/MedioPago",
 				"method": "GET",
 				"header": [
 					{
@@ -769,7 +769,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -808,7 +808,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -844,7 +844,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments/{{chargeId}}",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments/{{chargeId}}",
 				"method": "PUT",
 				"header": [
 					{
@@ -880,7 +880,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/dospasos",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/dospasos",
 				"method": "DELETE",
 				"header": [
 					{
@@ -911,7 +911,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/MedioPago",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/MedioPago",
 				"method": "GET",
 				"header": [
 					{
@@ -949,7 +949,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -987,7 +987,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/agregador",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/agregador",
 				"method": "POST",
 				"header": [
 					{
@@ -1018,7 +1018,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1060,7 +1060,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1099,7 +1099,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1135,7 +1135,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/agregador",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/agregador",
 				"method": "DELETE",
 				"header": [
 					{
@@ -1166,7 +1166,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1204,7 +1204,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -1235,7 +1235,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1277,7 +1277,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1317,7 +1317,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1357,7 +1357,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1399,7 +1399,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1435,7 +1435,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -1466,7 +1466,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1508,7 +1508,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1548,7 +1548,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1588,7 +1588,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1630,7 +1630,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1666,7 +1666,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -1697,7 +1697,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1739,7 +1739,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1779,7 +1779,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1819,7 +1819,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -1861,7 +1861,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -1897,7 +1897,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -1928,7 +1928,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -1970,7 +1970,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -2010,7 +2010,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2050,7 +2050,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -2092,7 +2092,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2128,7 +2128,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -2159,7 +2159,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
@@ -2201,7 +2201,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -2241,7 +2241,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2281,7 +2281,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -2323,7 +2323,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2363,7 +2363,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/tokens",
+				"url": "http://{{base_url}}:{{port}}/api/v2/tokens",
 				"method": "POST",
 				"header": [
 					{
@@ -2405,7 +2405,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2441,7 +2441,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -2472,7 +2472,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/04052019",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/04052019",
 				"method": "GET",
 				"header": [
 					{
@@ -2509,7 +2509,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2550,7 +2550,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2591,7 +2591,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2627,7 +2627,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "POST",
 				"header": [
 					{
@@ -2658,7 +2658,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/04052019",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/04052019",
 				"method": "GET",
 				"header": [
 					{
@@ -2696,7 +2696,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2738,7 +2738,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2779,7 +2779,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2820,7 +2820,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2859,7 +2859,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{port}}/api/v2/payments",
+				"url": "http://{{base_url}}:{{port}}/api/v2/payments",
 				"method": "POST",
 				"header": [
 					{
@@ -2895,7 +2895,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "DELETE",
 				"header": [
 					{
@@ -2926,7 +2926,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/cs",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/cs",
 				"method": "DELETE",
 				"header": [
 					{
@@ -2957,7 +2957,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{qapi_port}}/sites/subsites",
+				"url": "http://{{base_url}}:{{qapi_port}}/sites/subsites",
 				"method": "DELETE",
 				"header": [
 					{
@@ -2988,7 +2988,7 @@
 				}
 			],
 			"request": {
-				"url": "http://localhost:{{coretx_port}}/replication/site/{{site}}",
+				"url": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
 				"method": "GET",
 				"header": [
 					{
