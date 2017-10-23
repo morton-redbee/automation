@@ -168,7 +168,8 @@ function runTest() {
 	newman.run({
 	    	collection: require('.' + collection_file),
 		environment: require('.' + environment_file),   				
-		reporters: 'html'
+		reporters: 'junit',
+		reporter : { html : { export : './resultados.xml' } } 
 		}, function (err) {
 	    	if (err) { throw err; }
 	    	console.log('El test fue ejecutado por completo');
