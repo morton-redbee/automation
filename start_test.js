@@ -15,6 +15,7 @@ program
   .option('-p, --percentual', 'Distribucion de monto porcentual en pagos distribuidos (usar para activar)')
   .option('-s, --site [type]', 'Sitio a utilizar')
   .option('-b, --subsites [type]', 'Subsitios a utilizar en pagos distribuidos. Separar con comas sin espacios.')
+  .option('-r, --results [type]', 'postfix del xml resultante.')
   .parse(process.argv);
 
 if (program.test) {
@@ -168,7 +169,8 @@ function runTest() {
 	newman.run({
 	    	collection: require('.' + collection_file),
 		environment: require('.' + environment_file),   				
-		reporters: 'junit'
+		reporters: ['junit', 'cli'],
+		reporter : { junit : { export : '/build/newman-test-result/newman-test-results_' + program.results + '.xml' } } 
 		}, function (err) {
 	    	if (err) { throw err; }
 	    	console.log('El test fue ejecutado por completo');
