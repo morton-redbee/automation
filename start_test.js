@@ -169,7 +169,7 @@ function runTest() {
 	newman.run({
 	    	collection: require('.' + collection_file),
 		environment: require('.' + environment_file),
-		delayRequest: 2000,   				
+		delayRequest: 1000,   				
 		reporters: ['junit', 'cli'],
 		reporter : { junit : { export : '/build/newman-test-result/newman-test-results_' + program.results + '.xml' } } 
 		}, function (err) {
