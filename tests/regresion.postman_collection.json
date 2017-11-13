@@ -3215,7 +3215,11 @@
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
-							"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';"
+							"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';",
+							"",
+							"if (jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'rejected') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3229,7 +3233,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} ",
+						"value": "{{apikey_mocks}}",
 						"description": "apikey para DESA (solo tildar en ese entorno)"
 					}
 				],
@@ -3267,7 +3271,11 @@
 							"",
 							"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
 							"tests[\"Status child 1 is rejected\"] = jsonData.sub_payments[0].status === 'rejected';",
-							"tests[\"Status child 2 is group_rejected\"] = jsonData.sub_payments[1].status === 'group_rejected';"
+							"tests[\"Status child 2 is group_rejected\"] = jsonData.sub_payments[1].status === 'group_rejected';",
+							"",
+							"if (jsonData.status != 'rejected' || jsonData.sub_payments[0].status != 'rejected' || jsonData.sub_payments[1].status != 'group_rejected') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3281,7 +3289,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3318,7 +3326,11 @@
 							"",
 							"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
 							"tests[\"Status child 1 is group_annulled\"] = jsonData.sub_payments[0].status === 'group_annulled';",
-							"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';"
+							"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';",
+							"",
+							"if (jsonData.status != 'rejected' || jsonData.sub_payments[0].status != 'group_annulled' || jsonData.sub_payments[1].status != 'rejected') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3332,7 +3344,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3458,7 +3470,11 @@
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
-							"tests[\"Status child 2 is approved\"] = jsonData.sub_payments[1].status === 'approved';"
+							"tests[\"Status child 2 is approved\"] = jsonData.sub_payments[1].status === 'approved';",
+							"",
+							"if (jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'approved') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3472,7 +3488,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3510,7 +3526,11 @@
 							"",
 							"tests[\"Status father is review\"] = jsonData.status === 'review';",
 							"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
-							"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';"
+							"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';",
+							"",
+							"if (jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'annulled') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3524,7 +3544,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3561,7 +3581,11 @@
 							"",
 							"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';",
 							"tests[\"Status child 1 is annulled\"] = jsonData.sub_payments[0].status === 'annulled';",
-							"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';"
+							"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';",
+							"",
+							"if (jsonData.status != 'annulled' || jsonData.sub_payments[0].status != 'annulled' || jsonData.sub_payments[1].status != 'annulled') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3575,7 +3599,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3610,7 +3634,11 @@
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
-							"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';"
+							"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';",
+							"",
+							"if (jsonData.status != 'annulled') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3624,7 +3652,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3659,7 +3687,11 @@
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"",
-							"tests[\"Status is review\"] = jsonData.status === 'review';"
+							"tests[\"Status is review\"] = jsonData.status === 'review';",
+							"",
+							"if (jsonData.status != 'review') {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3673,7 +3705,7 @@
 					},
 					{
 						"key": "apikey",
-						"value": "{{apikey_mocks}} "
+						"value": "{{apikey_mocks}}"
 					}
 				],
 				"body": {
@@ -3800,7 +3832,11 @@
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
 							"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -3958,7 +3994,11 @@
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
 							"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4058,7 +4098,11 @@
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
 							"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4202,7 +4246,11 @@
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
 							"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4303,7 +4351,11 @@
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4355,7 +4407,11 @@
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4455,7 +4511,11 @@
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4507,7 +4567,11 @@
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4605,7 +4669,11 @@
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
@@ -4655,7 +4723,11 @@
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
 							"",
-							"tests[\"Status code is 200\"] = responseCode.code === 201;"
+							"tests[\"Status code is 201\"] = responseCode.code === 201;",
+							"",
+							"if (response.code != 201) {",
+							"console.log(\"responseBody\");    ",
+							"}"
 						]
 					}
 				}
