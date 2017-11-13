@@ -168,8 +168,7 @@ function editStxTest(fileName) {
 function runTest() {	
 	newman.run({
 	    	collection: require('.' + collection_file),
-		environment: require('.' + environment_file),
-		delayRequest: 5000,   				
+		environment: require('.' + environment_file),  				
 		reporters: ['junit', 'cli'],
 		reporter : { junit : { export : '/build/newman-test-result/newman-test-results_' + program.results + '.xml' } } 
 		}, function (err) {
