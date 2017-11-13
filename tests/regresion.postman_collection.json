@@ -1,6 +1,6 @@
 {
 	"info": {
-		"name": "REGRESION",
+		"name": "regresion",
 		"_postman_id": "6720e24c-afb6-32f3-8e57-6f2ca917ab6e",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -4731,7 +4731,48 @@
 			"response": []
 		},
 		{
-			"name": "16b - Pago offline - PMC",
+			"name": "16b - QAPI unset CS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"site\": \"{{site}}\"\n}"
+				},
+				"url": {
+					"raw": "http://{{base_url}}:{{qapi_port}}/sites/cs",
+					"protocol": "http",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{qapi_port}}",
+					"path": [
+						"sites",
+						"cs"
+					]
+				},
+				"description": "POST call to set CS in a certain site"
+			},
+			"response": []
+		},
+		{
+			"name": "16c- Pago offline - PMC",
 			"event": [
 				{
 					"listen": "test",
@@ -4784,7 +4825,7 @@
 			"response": []
 		},
 		{
-			"name": "16c - Pago offline - PMC PCI",
+			"name": "16d - Pago offline - PMC PCI",
 			"event": [
 				{
 					"listen": "test",
