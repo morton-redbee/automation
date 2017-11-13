@@ -1083,7 +1083,11 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"if (responseCode.code != 200) {",
+							"console.log(jsonData);    ",
+							"}"
 						]
 					}
 				}
@@ -3183,6 +3187,54 @@
 			"response": []
 		},
 		{
+			"name": "10j - Replicate site",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					},
+					{
+						"key": "apikey",
+						"value": "{{keypublic}}",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
+					"protocol": "http",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{coretx_port}}",
+					"path": [
+						"replication",
+						"site",
+						"{{site}}"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
 			"name": "11a - QAPI set CS VERDE Retail MOCKS",
 			"event": [
 				{
@@ -3839,6 +3891,49 @@
 					]
 				},
 				"description": "POST call to set CS in a certain site"
+			},
+			"response": []
+		},
+		{
+			"name": "11n - Replicate site MOCKS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/04052019",
+					"protocol": "http",
+					"host": [
+						"{{base_url}}"
+					],
+					"port": "{{coretx_port}}",
+					"path": [
+						"replication",
+						"site",
+						"04052019"
+					]
+				},
+				"description": null
 			},
 			"response": []
 		},
@@ -4727,47 +4822,6 @@
 					]
 				},
 				"description": null
-			},
-			"response": []
-		},
-		{
-			"name": "16b - QAPI unset CS",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n   \"site\": \"{{site}}\"\n}"
-				},
-				"url": {
-					"raw": "http://{{base_url}}:{{qapi_port}}/sites/cs",
-					"protocol": "http",
-					"host": [
-						"{{base_url}}"
-					],
-					"port": "{{qapi_port}}",
-					"path": [
-						"sites",
-						"cs"
-					]
-				},
-				"description": "POST call to set CS in a certain site"
 			},
 			"response": []
 		},
