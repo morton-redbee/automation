@@ -303,7 +303,8 @@
 						"v2",
 						"tokens"
 					]
-				}
+				},
+				"description": "En este paso se crea el token de pago."
 			},
 			"response": []
 		},
