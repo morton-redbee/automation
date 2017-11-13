@@ -240,7 +240,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -254,8 +254,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -290,7 +289,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -304,8 +303,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -432,7 +430,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -446,8 +444,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -482,7 +479,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -496,8 +493,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -624,7 +620,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -638,8 +634,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -674,7 +669,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -688,8 +683,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -816,7 +810,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -830,8 +824,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -905,7 +898,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -919,8 +912,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -953,7 +945,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/MedioPago",
@@ -967,8 +959,7 @@
 						"site",
 						"MedioPago"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1003,7 +994,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -1017,8 +1008,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1196,7 +1186,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/MedioPago",
@@ -1210,8 +1200,7 @@
 						"site",
 						"MedioPago"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1244,7 +1233,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -1258,8 +1247,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1333,7 +1321,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -1347,8 +1335,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1383,7 +1370,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -1397,8 +1384,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1525,7 +1511,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -1539,8 +1525,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1614,7 +1599,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -1628,8 +1613,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1664,7 +1648,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -1678,8 +1662,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1768,7 +1751,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -1782,8 +1765,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1913,7 +1895,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -1927,8 +1909,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -1963,7 +1944,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -1977,8 +1958,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2067,7 +2047,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2081,8 +2061,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2212,7 +2191,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -2226,8 +2205,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2262,7 +2240,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2276,8 +2254,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2366,7 +2343,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2380,8 +2357,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2511,7 +2487,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -2525,8 +2501,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2561,7 +2536,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2575,8 +2550,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2665,7 +2639,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2679,8 +2653,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2810,7 +2783,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -2824,8 +2797,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2860,7 +2832,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2874,8 +2846,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -2964,7 +2935,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -2978,8 +2949,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -3070,7 +3040,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{port}}/api/v2/tokens",
@@ -3084,8 +3054,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -3556,7 +3525,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/04052019",
@@ -3570,8 +3539,7 @@
 						"site",
 						"04052019"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -3981,8 +3949,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4072,7 +4039,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id_numero\": \"42423424\",\n  \"cod_trx\": \"{{cod_trx}}\",\n  \"canal\": \"RAPIPAGO\",\n  \"importe\": \"00000000.00\",\n  \"barra\": \"{{barcode}}\",\n  \"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
+					"raw": "{\n\t\"id_numero\": \"42423424\",\n\t\"cod_trx\": \"{{cod_trx}}\",\n\t\"canal\": \"RAPIPAGO\",\n\t\"importe\": \"00000000.00\",\n\t\"barra\": \"{{barcode}}\",\n\t\"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{resttx2_port}}/notifications/avisodepagorapipago",
@@ -4085,8 +4052,7 @@
 						"notifications",
 						"avisodepagorapipago"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4130,7 +4096,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id_numero\": \"1234567890\",\n  \"cod_trx\": \"{{cod_trx}}\",\n  \"canal\": \"RAPIPAGO\",\n  \"importe\": \"00000000.00\",\n  \"barra\": \"{{barcode}}\",\n  \"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
+					"raw": "{\n\t\"id_numero\": \"1234567890\",\n\t\"cod_trx\": \"{{cod_trx}}\",\n\t\"canal\": \"RAPIPAGO\",\n\t\"importe\": \"00000000.00\",\n\t\"barra\": \"{{barcode}}\",\n\t\"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{resttx2_port}}/notifications/avisodereversarapipago",
@@ -4143,8 +4109,7 @@
 						"notifications",
 						"avisodereversarapipago"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4247,8 +4212,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4335,7 +4299,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n  \"id_operacion\": \"{{cod_trx}}\",\n  \"medio_pago\":\"cup\",\n  \"codigo_barras\":\"{{barcode}}\",\n  \"tipo_documento\":\"FAA\",\n  \"numero_documento\":\"001-45-6688\",\n  \"numero_usuario\":\"usuario123\",\n  \"fecha_pago\":\"20191123\",\n  \"hora_pago\":\"1233\",\n  \"moneda\":\"ARS\",\n  \"importe_abonado\":\"1000\",\n  \"terminal\":\"A23\",\n  \"numero_transaccion\":\"32234323\",\n  \"fecha_proceso_pf\" : \"20191124\"\n}"
+					"raw": "{ \n\t\"id_operacion\": \"{{cod_trx}}\",\n\t\"medio_pago\":\"cup\",\n\t\"codigo_barras\":\"{{barcode}}\",\n\t\"tipo_documento\":\"FAA\",\n\t\"numero_documento\":\"001-45-6688\",\n\t\"numero_usuario\":\"usuario123\",\n\t\"fecha_pago\":\"20191123\",\n\t\"hora_pago\":\"1233\",\n\t\"moneda\":\"ARS\",\n\t\"importe_abonado\":\"1000\",\n\t\"terminal\":\"A23\",\n\t\"numero_transaccion\":\"32234323\",\n\t\"fecha_proceso_pf\" : \"20191124\"\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{resttx2_port}}/notifications/avisodepagopagofacil",
@@ -4348,8 +4312,7 @@
 						"notifications",
 						"avisodepagopagofacil"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4382,7 +4345,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{ \n  \"id_operacion\": \"{{cod_trx}}\",\n  \"medio_pago\":\"cup\",\n  \"codigo_barras\":\"{{barcode}}\",\n  \"tipo_documento\":\"FAA\",\n  \"numero_documento\":\"001-45-6688\",\n  \"numero_usuario\":\"usuario123\",\n  \"fecha_pago\":\"20141123\",\n  \"hora_pago\":\"1233\",\n  \"moneda\":\"ARS\",\n  \"importe_abonado\":\"12100\",\n  \"terminal\":\"A23\",\n  \"numero_transaccion\":\"32234323\",\n  \"fecha_proceso_pf\" : \"20141124\"\n}"
+					"raw": "{ \n\t\"id_operacion\": \"{{cod_trx}}\",\n\t\"medio_pago\":\"cup\",\n\t\"codigo_barras\":\"{{barcode}}\",\n\t\"tipo_documento\":\"FAA\",\n\t\"numero_documento\":\"001-45-6688\",\n\t\"numero_usuario\":\"usuario123\",\n\t\"fecha_pago\":\"20141123\",\n\t\"hora_pago\":\"1233\",\n\t\"moneda\":\"ARS\",\n\t\"importe_abonado\":\"12100\",\n\t\"terminal\":\"A23\",\n\t\"numero_transaccion\":\"32234323\",\n\t\"fecha_proceso_pf\" : \"20141124\"\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{resttx2_port}}/notifications/avisodereversapagofacil",
@@ -4395,8 +4358,7 @@
 						"notifications",
 						"avisodereversapagofacil"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4499,8 +4461,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4512,8 +4473,6 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));",
-							"",
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
@@ -4523,6 +4482,15 @@
 							"if (responseCode.code != 201) {",
 							"console.log(jsonData);    ",
 							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
 						]
 					}
 				}
@@ -4568,8 +4536,6 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));",
-							"",
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
@@ -4577,8 +4543,18 @@
 							"tests[\"Status code is 201\"] = responseCode.code === 201;",
 							"",
 							"if (responseCode.code != 201) {",
-							"console.log(jsonData);    ",
+							"console.log(randomExpress);",
+							"console.log(jsonData);",
 							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
 						]
 					}
 				}
@@ -4660,8 +4636,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -4673,8 +4648,6 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));",
-							"",
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
 							"",
@@ -4683,6 +4656,15 @@
 							"if (responseCode.code != 201) {",
 							"console.log(jsonData);    ",
 							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
 						]
 					}
 				}
@@ -4728,8 +4710,6 @@
 					"script": {
 						"type": "text/javascript",
 						"exec": [
-							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));",
-							"",
 							"var jsonData = JSON.parse(responseBody);",
 							"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
 							"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
@@ -4739,6 +4719,15 @@
 							"if (responseCode.code != 201) {",
 							"console.log(jsonData);    ",
 							"}"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
 						]
 					}
 				}
@@ -4820,8 +4809,7 @@
 						"v2",
 						"tokens"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		},
@@ -5043,7 +5031,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+					"raw": "{\n\t\"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 				},
 				"url": {
 					"raw": "http://{{base_url}}:{{coretx_port}}/replication/site/{{site}}",
@@ -5057,8 +5045,7 @@
 						"site",
 						"{{site}}"
 					]
-				},
-				"description": null
+				}
 			},
 			"response": []
 		}
