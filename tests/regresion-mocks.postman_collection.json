@@ -1,0 +1,1243 @@
+{
+	"info": {
+		"name": "Regresión - Status de marca (C/MOCKS)",
+		"_postman_id": "7473b34f-71b9-3601-3e45-166c486a9434",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Status de operaciones - con MOCKS",
+			"description": "",
+			"item": [
+				{
+					"name": "11a - QAPI unset CS MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "11b - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "11c - QAPI create subsites MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"subsites\": \"{{subsites_mocks}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site FALCON"
+					},
+					"response": []
+				},
+				{
+					"name": "11d - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "11e - QAPI set CS VERDE Retail MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"S\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "11f - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "11g - PCI - CS - MOCKS (falla 2º no p/reversar 1º) - requiere G",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is review\"] = jsonData.status === 'review';",
+									"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
+									"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'rejected') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}",
+								"description": "apikey para DESA (solo tildar en ese entorno)"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430028267688\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{subsite_mocks_1}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{site_mocks}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11h - PCI - CS - MOCKS (falla 1º) - requiere G",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
+									"tests[\"Status child 1 is rejected\"] = jsonData.sub_payments[0].status === 'rejected';",
+									"tests[\"Status child 2 is group_rejected\"] = jsonData.sub_payments[1].status === 'group_rejected';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'rejected' || jsonData.sub_payments[0].status != 'rejected' || jsonData.sub_payments[1].status != 'group_rejected') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430028267688\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n      \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{site_mocks}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{subsite_mocks_2}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11i - PCI - CS - MOCKS (falla 2º) - requiere G",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is rejected\"] = jsonData.status === 'rejected';",
+									"tests[\"Status child 1 is group_annulled\"] = jsonData.sub_payments[0].status === 'group_annulled';",
+									"tests[\"Status child 2 is rejected\"] = jsonData.sub_payments[1].status === 'rejected';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'rejected' || jsonData.sub_payments[0].status != 'group_annulled' || jsonData.sub_payments[1].status != 'rejected') {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430028267688\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{subsite_mocks_2}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{site_mocks}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11j - QAPI set CS AZUL Retail MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"security_key\": \"pIjFkWOnkdlrzfitqVXnC/99Da0+BVi6D5o4DeduWtRrcHBmgh1+Ia5tvDXhudWF3FnlVeVjspuDKSCz85INyaWK9pbQuB0z7JmQJ+FnhB6xUbXkwVF9Jx2TKZhRwAlL+V1z3/yQGtulafUTD00A/pxj1+embSluUYk/UBWL14iTWNyQGjU/G96uCh3VBdc6Josmcx90htsY1CzweuKofPyTqNn6EygZoX2GKI2b51deaA9eCnKvrNn1bLy459+6KE7GM4qwZZlD813njQLjgCEr7c70wL1Ur6haAITUKUrG2hDjprTC4M3uzpkU5+gLVRoWTdwCYBou2UFGRr06Kg==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"S\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "11k - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "11l - PCI - CS - MOCKS (falla anular 1º y 2º) - requiere B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is review\"] = jsonData.status === 'review';",
+									"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
+									"tests[\"Status child 2 is approved\"] = jsonData.sub_payments[1].status === 'approved';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'approved') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430020909816\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{subsite_mocks_1}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{site_mocks}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11m - PCI - CS - MOCKS (falla anular solo la 2º) - requiere B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is review\"] = jsonData.status === 'review';",
+									"tests[\"Status child 1 is approved\"] = jsonData.sub_payments[0].status === 'approved';",
+									"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'review' || jsonData.sub_payments[0].status != 'approved' || jsonData.sub_payments[1].status != 'annulled') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430020909816\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{subsite_mocks_1}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{subsite_mocks_2}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n         {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11n - PCI - CS - MOCKS (anula todas OK) - requiere B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';",
+									"tests[\"Status child 1 is annulled\"] = jsonData.sub_payments[0].status === 'annulled';",
+									"tests[\"Status child 2 is annulled\"] = jsonData.sub_payments[1].status === 'annulled';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'annulled' || jsonData.sub_payments[0].status != 'annulled' || jsonData.sub_payments[1].status != 'annulled') {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4509790112684851\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450979\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"distributed\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"{{subsite_mocks_1}}\",\n         \"installments\": 5,\n         \"amount\": 30000\n      },\n      {\n         \"site_id\": \"{{subsite_mocks_2}}\",\n         \"installments\": 5,\n         \"amount\": 20000\n      }\n     ],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n         {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11o - PCI - CS - MOCKS simple anula OK - requiere B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status father is annulled\"] = jsonData.status === 'annulled';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'annulled') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4509790112684851\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450979\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"single\",\n   \"sub_payments\" : [],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11p - PCI - CS - MOCKS simple falla anular - requiere B",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 402\"] = responseCode.code === 402;",
+									"tests[\"Status is review\"] = jsonData.status === 'review';",
+									"",
+									"if (responseCode.code != 402 || jsonData.status != 'review') {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{apikey_mocks}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"card_number\" : \"4508430020909816\",\n     \"card_expiration_month\" : \"10\",\n     \"card_expiration_year\" : \"20\", \n     \"security_code\" : \"123\",\n     \"card_holder_name\" : \"Juan\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"fraud_detection\" : {\n          \"device_unique_identifier\": \"12345\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"Prueba PCI {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"user_id\": \"morton\",\n   \"bin\" : \"450843\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"single\",\n   \"sub_payments\" : [],\n   \"fraud_detection\": {\n      \"send_to_cs\": true,\n      \"channel\": \"Web/Mobile/Telefonica\",\n      \"bill_to\": {\n        \"city\": \"Buenos Aires\",\n         \"country\": \"AR\",\n         \"customer_id\": \"martinid\",\n         \"email\": \"accept@decidir.com.ar\",\n         \"first_name\": \"martin\",\n         \"last_name\": \"paoletta\",\n         \"phone_number\": \"1547766329\",\n         \"postal_code\": \"1427\",\n         \"state\": \"BA\",\n         \"street1\": \"GARCIA DEL RIO 4041\",\n         \"street2\": \"GARCIA DEL RIO 4041\"        \n      },      \n      \"purchase_totals\": {\n         \"currency\": \"ARS\",\n         \"amount\": 2\n      },\n      \"customer_in_site\": {\n         \"days_in_site\": 243,\n         \"is_guest\": false,\n         \"password\": \"abracadabra\",\n         \"num_of_transactions\": 1,\n         \"cellphone_number\": \"12121\",\n         \"date_of_birth\": \"129412\",\n         \"street\": \"RIO 4041\"\n      },\n      \"retail_transaction_data\": {\n         \"ship_to\": {\n            \"city\": \"Buenos Aires\",\n            \"country\": \"AR\",\n            \"email\": \"accept@decidir.com.ar\",\n            \"first_name\": \"martin\",\n            \"last_name\": \"paoletta\",\n            \"phone_number\": \"1547766329\",\n            \"postal_code\": \"1427\",\n            \"state\": \"BA\",\n            \"street1\": \"GARCIA DEL RIO 4041\",\n            \"street2\": \"GARCIA DEL RIO 4041\"\n      },\n         \"days_to_delivery\": \"55\",\n         \"dispatch_method\": \"storepickup\",\n         \"tax_voucher_required\": true,\n         \"customer_loyality_number\": \"123232\",\n         \"coupon_code\": \"cupon22\",\n         \"items\": [\n            {\n               \"code\": \"popblacksabbat2016\",\n               \"description\": \"Popular Black Sabbath 2016\",\n               \"name\": \"popblacksabbat2016ss\",\n               \"sku\": \"asas\",\n               \"total_amount\": 20,\n               \"quantity\": 1,\n               \"unit_price\": 20\n            },\n           {\n              \"code\": \"popblacksdssabbat2016\",\n              \"description\": \"Popular Blasdsck Sabbath 2016\",\n              \"name\": \"popblacksabbatdsds2016ss\",\n              \"sku\": \"aswewas\",\n              \"total_amount\": 111212,\n              \"quantity\": 1,\n              \"unit_price\": 111212\n           }\n         ]\n      },\n        \"csmdds\": [\n         {\"code\": 17, \"description\": \"Campo MDD17\"},\n          {\"code\": 18, \"description\": \"Campo MDD18\"},\n         {\"code\": 19, \"description\": \"Campo MDD19\"},\n         {\"code\": 20, \"description\": \"Campo MDD20\"},\n         {\"code\": 21, \"description\": \"Campo MDD21\"},\n         {\"code\": 22, \"description\": \"Campo MDD22\"},\n         {\"code\": 23, \"description\": \"Campo MDD23\"},\n         {\"code\": 24, \"description\": \"Campo MDD24\"},\n         {\"code\": 25, \"description\": \"Campo MDD25\"},\n         {\"code\": 26, \"description\": \"Campo MDD26\"},\n         {\"code\": 27, \"description\": \"Campo MDD27\"},\n         {\"code\": 28, \"description\": \"Campo MDD28\"},\n         {\"code\": 29, \"description\": \"Campo MDD29\"},\n         {\"code\": 30, \"description\": \"Campo MDD30\"},\n         {\"code\": 31, \"description\": \"Campo MDD31\"},\n         {\"code\": 32, \"description\": \"Campo MDD32\"},\n         {\"code\": 33, \"description\": \"Campo MDD33\"},\n         {\"code\": 34, \"description\": \"Campo MDD34\"},\n {\"code\": 43, \"description\": \"Campo MDD43\"},\n         {\"code\": 44, \"description\": \"Campo MDD44\"},\n         {\"code\": 45, \"description\": \"Campo MDD45\"},\n         {\"code\": 46, \"description\": \"Campo MDD46\"},\n         {\"code\": 47, \"description\": \"Campo MDD47\"},\n         {\"code\": 48, \"description\": \"Campo MDD48\"},\n         {\"code\": 49, \"description\": \"Campo MDD49\"},\n         {\"code\": 50, \"description\": \"Campo MDD50\"},\n         {\"code\": 51, \"description\": \"Campo MDD51\"},\n         {\"code\": 52, \"description\": \"Campo MDD52\"},\n         {\"code\": 53, \"description\": \"Campo MDD53\"},\n         {\"code\": 54, \"description\": \"Campo MDD54\"},\n         {\"code\": 55, \"description\": \"Campo MDD55\"},\n         {\"code\": 56, \"description\": \"Campo MDD56\"},\n         {\"code\": 57, \"description\": \"Campo MDD57\"},\n         {\"code\": 58, \"description\": \"Campo MDD58\"},\n         {\"code\": 59, \"description\": \"Campo MDD59\"},\n         {\"code\": 60, \"description\": \"Campo MDD60\"},\n         {\"code\": 61, \"description\": \"Campo MDD61\"},\n         {\"code\": 62, \"description\": \"Campo MDD62\"},\n         {\"code\": 63, \"description\": \"Campo MDD63\"},\n         {\"code\": 64, \"description\": \"Campo MDD64\"},\n         {\"code\": 65, \"description\": \"Campo MDD65\"},\n         {\"code\": 66, \"description\": \"Campo MDD66\"},\n         {\"code\": 67, \"description\": \"Campo MDD67\"},\n         {\"code\": 68, \"description\": \"Campo MDD68\"},\n         {\"code\": 69, \"description\": \"Campo MDD69\"},\n         {\"code\": 70, \"description\": \"Campo MDD70\"},\n         {\"code\": 71, \"description\": \"Campo MDD71\"},\n         {\"code\": 72, \"description\": \"Campo MDD72\"},\n         {\"code\": 73, \"description\": \"Campo MDD73\"},\n         {\"code\": 74, \"description\": \"Campo MDD74\"},\n         {\"code\": 75, \"description\": \"Campo MDD75\"},\n         {\"code\": 76, \"description\": \"Campo MDD76\"},\n         {\"code\": 77, \"description\": \"Campo MDD77\"},\n         {\"code\": 78, \"description\": \"Campo MDD78\"},\n         {\"code\": 79, \"description\": \"Campo MDD79\"},\n         {\"code\": 80, \"description\": \"Campo MDD80\"},\n         {\"code\": 81, \"description\": \"Campo MDD81\"},\n         {\"code\": 82, \"description\": \"Campo MDD82\"},\n         {\"code\": 83, \"description\": \"Campo MDD83\"},\n         {\"code\": 84, \"description\": \"Campo MDD84\"},\n         {\"code\": 85, \"description\": \"Campo MDD85\"},\n         {\"code\": 86, \"description\": \"Campo MDD86\"},\n         {\"code\": 87, \"description\": \"Campo MDD87\"},\n         {\"code\": 88, \"description\": \"Campo MDD88\"},\n         {\"code\": 89, \"description\": \"Campo MDD89\"},\n         {\"code\": 90, \"description\": \"Campo MDD90\"},\n         {\"code\": 91, \"description\": \"Campo MDD91\"},\n         {\"code\": 92, \"description\": \"Campo MDD92\"},\n         {\"code\": 93, \"description\": \"Campo MDD93\"},\n         {\"code\": 94, \"description\": \"Campo MDD94\"},\n         {\"code\": 95, \"description\": \"Campo MDD95\"},\n         {\"code\": 96, \"description\": \"Campo MDD96\"},\n         {\"code\": 97, \"description\": \"Campo MDD97\"},\n         {\"code\": 98, \"description\": \"Campo MDD98\"},\n         {\"code\": 99, \"description\": \"Campo MDD99\"}\n      ]\n   }\n   \n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "11q - QAPI unset CS MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "11r - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "11s - QAPI delete subsites MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site_mocks}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "11t - Replicate site MOCKS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site_mocks}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site_mocks}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

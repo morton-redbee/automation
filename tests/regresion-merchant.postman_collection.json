@@ -1,0 +1,1775 @@
+{
+	"info": {
+		"name": "Regresión - merchant",
+		"_postman_id": "ed86343e-138e-db69-2cb7-bf42fbda803f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reestablecimiento de la configuracion",
+			"description": "",
+			"item": [
+				{
+					"name": "00a - QAPI unset CS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00b - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00c - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "00d - QAPI unset Dos Pasos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"medio_de_pago\" : \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/dospasos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"dospasos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "be80160e-356c-475a-8304-3ef00a5f5c78",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b67ca674-2b59-4cf0-a25c-bf2758dc6f80",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Pagos y devoluciones",
+			"description": "",
+			"item": [
+				{
+					"name": "1a - QAPI create merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"merchant\": \"{{subsite_2}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/merchant",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"merchant"
+							]
+						},
+						"description": "POST call to create subsites in a certain site "
+					},
+					"response": []
+				},
+				{
+					"name": "1b - Replicate site - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8975f781-df13-4b09-af4f-89b74c799348",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{subsite_2}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{subsite_2}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "02a - Creación de token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);    ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el token con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de token en la respuesta');",
+									"    }",
+									"    ",
+									"    if (jsonData.bin) {",
+									"        postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"token\")) {",
+									"        console.log('Se configuró la variable de entorno token con el valor ' + pm.environment.get(\"token\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno token');    ",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"bin\")) {",
+									"        console.log('Se configuró la variable de entorno bin con el valor ' + pm.environment.get(\"bin\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno bin');    ",
+									"    }",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_birthday\" : \"01012017\",\n    \"card_holder_door_number\": 348,\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "02b - Pago simple - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"regrdev {{$timestamp}}\",\n   \"site_id\": \"{{subsite_2}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{subsite_2}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "02c - Anulación de pago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments/{{chargeId}}/refunds",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments",
+								"{{chargeId}}",
+								"refunds"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "03a - Creación de token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);    ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el token con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de token en la respuesta');",
+									"    }",
+									"    ",
+									"    if (jsonData.bin) {",
+									"        postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"token\")) {",
+									"        console.log('Se configuró la variable de entorno token con el valor ' + pm.environment.get(\"token\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno token');    ",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"bin\")) {",
+									"        console.log('Se configuró la variable de entorno bin con el valor ' + pm.environment.get(\"bin\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno bin');    ",
+									"    }",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_birthday\" : \"01012017\",\n    \"card_holder_door_number\": 348,\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "03b - Pago simple - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"regrdev {{$timestamp}}\",\n   \"site_id\": \"{{subsite_2}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{subsite_2}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "03c - Devolucion parcial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó la devolución con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"refundId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de devolución en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"refundId\")) {",
+									"        console.log('Se configuró la variable de entorno refundId con el valor ' + pm.environment.get(\"refundId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno refundId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 10000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments/{{chargeId}}/refunds",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments",
+								"{{chargeId}}",
+								"refunds"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "04a - Creación de token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);    ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el token con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de token en la respuesta');",
+									"    }",
+									"    ",
+									"    if (jsonData.bin) {",
+									"        postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"token\")) {",
+									"        console.log('Se configuró la variable de entorno token con el valor ' + pm.environment.get(\"token\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno token');    ",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"bin\")) {",
+									"        console.log('Se configuró la variable de entorno bin con el valor ' + pm.environment.get(\"bin\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno bin');    ",
+									"    }",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_birthday\" : \"01012017\",\n    \"card_holder_door_number\": 348,\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "04b - Pago simple - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"regrdev {{$timestamp}}\",\n   \"site_id\": \"{{subsite_2}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{subsite_2}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "04c - Devolución total",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó la devolución con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"refundId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de devolución en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"refundId\")) {",
+									"        console.log('Se configuró la variable de entorno refundId con el valor ' + pm.environment.get(\"refundId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno refundId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 20000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments/{{chargeId}}/refunds",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments",
+								"{{chargeId}}",
+								"refunds"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05a - Creación de token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);    ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el token con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de token en la respuesta');",
+									"    }",
+									"    ",
+									"    if (jsonData.bin) {",
+									"        postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"token\")) {",
+									"        console.log('Se configuró la variable de entorno token con el valor ' + pm.environment.get(\"token\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno token');    ",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"bin\")) {",
+									"        console.log('Se configuró la variable de entorno bin con el valor ' + pm.environment.get(\"bin\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno bin');    ",
+									"    }",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_birthday\" : \"01012017\",\n    \"card_holder_door_number\": 348,\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05b - Pago simple - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"regrdev {{$timestamp}}\",\n   \"site_id\": \"{{subsite_2}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{subsite_2}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "05c -Devolución parcial",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó la devolución con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"refundId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de devolución en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"refundId\")) {",
+									"        console.log('Se configuró la variable de entorno refundId con el valor ' + pm.environment.get(\"refundId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno refundId');    ",
+									"    }",
+									"    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 10000\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments/{{chargeId}}/refunds",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments",
+								"{{chargeId}}",
+								"refunds"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05d - Anulación de devolución",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"if (!tests[\"Status code is 200\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments/{{chargeId}}/refunds/{{refundId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments",
+								"{{chargeId}}",
+								"refunds",
+								"{{refundId}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05e - Pago simple PCI - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fd67b1a3-297b-4f30-9b6f-85aac90c4cb3",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n   \"card_number\" : \"4509790112684851\",\n   \"card_expiration_month\" : \"10\",\n   \"card_expiration_year\" : \"20\", \n   \"security_code\" : \"123\",\n   \"card_holder_name\" : \"Juan\",\n   \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n   },\n   \"user_id\": \"morton\",\n   \"site_id\" : \"{{subsite_2}}\",\n   \"site_transaction_id\" : \"regrPCI visa {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"bin\" : \"450979\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"single\",\n   \"sub_payments\" : []\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{subsite_2}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reestablecimiento de la configuración",
+			"description": "",
+			"item": [
+				{
+					"name": "5e - QAPI delete merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"merchant\": \"{{subsite_2}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/merchant",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"merchant"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "5f - Replicate site - merchant",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8975f781-df13-4b09-af4f-89b74c799348",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{subsite_2}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{subsite_2}}"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f58c7b13-9175-49be-8b72-d8076fce6be2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9c2d9df5-2a85-4e75-941e-84343f96404b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

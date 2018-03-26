@@ -1,0 +1,838 @@
+{
+	"info": {
+		"name": "Regresión - Agregador",
+		"_postman_id": "51cb3976-80fe-aa41-0fcc-3d406518cdc0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reestablecimiento de la configuracion",
+			"description": "",
+			"item": [
+				{
+					"name": "00a - QAPI unset CS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "99091eaf-d3e3-4248-904f-d6c2d7abc9e9",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00b - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a007ea1b-b8fd-444b-91f2-e77261833322",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00c - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "54c62030-e464-4e27-90a3-f55095a53424",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "00d - QAPI unset Dos Pasos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d9f8cece-ea93-43f3-9966-e8b315ebfc11",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"medio_de_pago\" : \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/dospasos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"dospasos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8a68bf3-9ce0-4bbf-bef9-140a70bfb19d",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "8975f781-df13-4b09-af4f-89b74c799348",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago con agregador",
+			"description": "",
+			"item": [
+				{
+					"name": "05a - QAPI set Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "56dde5f4-5988-4bfb-9e46-244277c01784",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "05b - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c00784dd-06e2-4cb3-bfa8-ccfeb8fe6301",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05c - Creacion de token pago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "266e7ee9-741c-4b55-b4e5-b2e8983dc725",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);    ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el token con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de token en la respuesta');",
+									"    }",
+									"    ",
+									"    if (jsonData.bin) {",
+									"        postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"token\")) {",
+									"        console.log('Se configuró la variable de entorno token con el valor ' + pm.environment.get(\"token\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno token');    ",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"bin\")) {",
+									"        console.log('Se configuró la variable de entorno bin con el valor ' + pm.environment.get(\"bin\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno bin');    ",
+									"    }",
+									"",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "05d - Pago simple c/agregador OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bbb8bf3f-8724-4429-bda2-65d26f8ef651",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"    var jsonData = JSON.parse(responseBody);",
+									"} else {",
+									"    console.log('No se recibió respuesta con el formato esperado'); ",
+									"}",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (!tests[\"Status code is 201\"]) {",
+									"    console.log('Alguna de las comprobaciones no dio resultados satisfactorios.');",
+									"    ",
+									"    if (jsonData) {",
+									"        console.log('Se adjunta la respuesta recibida:');",
+									"        console.log(jsonData);",
+									"        ",
+									"    } else {",
+									"       console.log('Error al intentar parsear la respuesta obtenida. Se adjunta el cuerpo de la respuesta como fue recibido:');",
+									"       console.log(responseBody);   ",
+									"    }",
+									"",
+									"} else {",
+									"",
+									"    if (jsonData.id) {",
+									"        console.log('Se creó el pago con id ' + jsonData.id);",
+									"        postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"    } else {",
+									"        console.log('No se encontró un id de transacción en la respuesta');",
+									"    }",
+									"    ",
+									"    if (pm.environment.get(\"chargeId\")) {",
+									"        console.log('Se configuró la variable de entorno chargeId con el valor ' + pm.environment.get(\"chargeId\")); ",
+									"    } else {",
+									"        console.log('No se pudo configurar correctamente la variable de entorno chargeId');    ",
+									"    }",
+									"    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"auto regr visa ag {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 1,\n    \"bin\" : \"{{bin}}\",\n    \"amount\" : 20000,\n    \"currency\" : \"ARS\",\n    \"installments\" : 1,\n    \"description\" : \"Prueba QA\", \n    \"payment_type\" : \"single\",\n    \"establishment_name\" : \"prueba desa soft\",\n    \"sub_payments\" : [\n    ],\n    \"aggregate_data\" : {\n    \"indicator\" : \"1\",\n    \"identification_number\" : \"20380940060\",\n    \"bill_to_pay\" : \"mnbvcxasmg\",\n    \"bill_to_refund\" : \"12345678902\",\n    \"merchant_name\" : \"leila / di /ciocco12\",\n        \"street\" : \"calle 123 lavalle 1\",\n        \"number\" : \"123456\",\n        \"postal_code\" : \"1234567\",\n        \"category\" : \"1234\",\n        \"channel\" : \"1k0\",\n        \"geographic_code\" : \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19c8554f-b8d8-4bd7-a527-4ccc758e5384",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "feed5d41-51bc-4b08-a9e9-189589e63209",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d19e24f6-78d4-41cd-ad74-6d9d56027a95",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Reestablecimiento de la configuración - final",
+			"description": "",
+			"item": [
+				{
+					"name": "05e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9027a976-2955-4228-8038-db6d0d6ba701",
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "05f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

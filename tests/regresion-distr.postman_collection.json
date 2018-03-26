@@ -1,0 +1,891 @@
+{
+	"info": {
+		"name": "Regresión - pago distribuido",
+		"_postman_id": "dbf8caea-16be-4397-b37b-5aeb44042105",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reestablecimiento de la configuracion",
+			"description": "",
+			"item": [
+				{
+					"name": "00a - QAPI unset CS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00b - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00c - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "00d - QAPI unset Dos Pasos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"medio_de_pago\" : \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/dospasos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"dospasos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago distribuido por monto",
+			"description": "",
+			"item": [
+				{
+					"name": "02a - QAPI create subsite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"subsites\": \"{{subsites}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site FALCON"
+					},
+					"response": []
+				},
+				{
+					"name": "02b - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "02c - Creacion de token pago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "02d - Pago distribuida OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"user_id\": \"morton\",\n   \"site_transaction_id\": \"auto regrvisa {{$timestamp}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"distributed\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n      {\n         \"site_id\": \"{{subsite_1}}\",\n         \"installments\": 5,\n         \"amount\": 12000\n      },\n      {\n         \"site_id\": \"{{subsite_2}}\",\n         \"installments\": 6,\n         \"amount\": 8000\n      }\n    ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n }"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago distribuido por porcentaje",
+			"description": "",
+			"item": [
+				{
+					"name": "03a - QAPI set Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "03b - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "03c - Creacion de token pago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "03d - Pago distribuida porcentaje OK",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"user_id\": \"morton\",\n   \"site_transaction_id\": \"auto regr visa {{$timestamp}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"distributed\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n    ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n }"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "03e - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "03f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reestablecimiento de la configuración - final",
+			"description": "",
+			"item": [
+				{
+					"name": "final - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "final - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -165,16 +165,23 @@ function editStxTest(fileName) {
 }
 
 // Aquí se ejecuta el test que hemos modificado, para realizar pagos en la API
-function runTest() {	
+function runTest() {		
 	newman.run({
 	    	collection: require('.' + collection_file),
 		environment: require('.' + environment_file), 	
-		delayRequest: 2000,
+		delayRequest: 2000,            
+		insecure: true,
+		timeout: 0,
+		timeoutRequest: 0,
+		disableUnicode: true,		
 		reporters: ['junit', 'cli'],
-		reporter : { junit : { export : '/build/newman-test-result/newman-test-results_' + program.results + '.xml' } } 
+		reporter : { junit : { export : '/build/newman-test-result/' + program.test + '-test-results_' + program.results + '.xml' } } 
 		}, function (err) {
 	    	if (err) { throw err; }
 	    	console.log('El test fue ejecutado por completo');
+		if (fs.existsSync('/build/newman-test-result/'+ program.test + '-test-results_' + program.results + '.xml')) {
+    			console.log('Los resultados fueron almacenados en /build/newman-test-result/' + program.test + '-test-results_' + program.results + '.xml');
+		}
 	})
 }
 

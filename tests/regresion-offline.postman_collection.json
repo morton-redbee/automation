@@ -1,0 +1,1730 @@
+{
+	"info": {
+		"name": "Regresión - pago offline",
+		"_postman_id": "5251884a-294b-e75b-3fc2-7248806d0561",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reestablecimiento de la configuracion",
+			"description": "",
+			"item": [
+				{
+					"name": "00a - QAPI unset CS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00b - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00c - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "00d - QAPI unset Dos Pasos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"medio_de_pago\" : \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/dospasos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"dospasos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago offline",
+			"description": "",
+			"item": [
+				{
+					"name": "12a - Creación de token - pago offline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "12b - Pago offline - Rapipago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
+									"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_mode\": \"offline\",\n    \"payment_method_id\" : 26, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"installments\" : \"02\",\n    \"invoice_expiration\" : \"191223\",\n    \"cod_p3\": \"12\",\n    \"cod_p4\": \"012\",\n    \"client\": \"12345678\",\n    \"surcharge\" : 1200,\n    \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "12c - Aviso de pago - Rapipago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+									"",
+									"tests[\"Response code is 0\"] = jsonData.codigo_respuesta === \"0\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_numero\": \"42423424\",\n  \"cod_trx\": \"{{cod_trx}}\",\n  \"canal\": \"RAPIPAGO\",\n  \"importe\": \"00000000.00\",\n  \"barra\": \"{{barcode}}\",\n  \"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
+						},
+						"url": {
+							"raw": "{{resttx2_url}}/notifications/avisodepagorapipago",
+							"host": [
+								"{{resttx2_url}}"
+							],
+							"path": [
+								"notifications",
+								"avisodepagorapipago"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "12d - Aviso de Reversa - Rapipago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+									"",
+									"tests[\"Response code is 0\"] = jsonData.codigo_respuesta === \"0\";"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "X-Consumer-Username",
+								"value": "00111115_private"
+							},
+							{
+								"key": "apikey",
+								"value": "92b71cf711ca41f78362a7134f87ff65",
+								"disabled": true
+							},
+							{
+								"key": "X-Forwarded-For",
+								"value": "123.45.67.89",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id_numero\": \"1234567890\",\n  \"cod_trx\": \"{{cod_trx}}\",\n  \"canal\": \"RAPIPAGO\",\n  \"importe\": \"00000000.00\",\n  \"barra\": \"{{barcode}}\",\n  \"fecha_hora_operacion\": \"2014-09-19 15:34:56\"\n}"
+						},
+						"url": {
+							"raw": "{{resttx2_url}}/notifications/avisodereversarapipago",
+							"host": [
+								"{{resttx2_url}}"
+							],
+							"path": [
+								"notifications",
+								"avisodereversarapipago"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "12e - Pago offline - Rapipago PCI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
+									"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"payment_method_id\" : 26, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"payment_type\" : \"single\",\n    \"email\" : \"asd@asd.com\",\n    \"invoice_expiration\" : \"191123\",\n    \"cod_p3\": \"10\",\n    \"cod_p4\": \"134\",\n    \"client\": \"12345678\",\n    \"surcharge\": 1234567,\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "13a - Creación de token - pago offline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "13b - Pago offline - Pago Facil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
+									"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_mode\": \"offline\",\n    \"payment_method_id\" : 25, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"installments\" : \"02\",\n    \"invoice_expiration\" : \"191223\",\n    \"cod_p3\": \"12\",\n    \"cod_p4\": \"012\",\n    \"client\": \"12345678\",\n    \"surcharge\" : 1200,\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "13c - Aviso de Pago - Pago Facil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"id_operacion\": \"{{cod_trx}}\",\n  \"medio_pago\":\"cup\",\n  \"codigo_barras\":\"{{barcode}}\",\n  \"tipo_documento\":\"FAA\",\n  \"numero_documento\":\"001-45-6688\",\n  \"numero_usuario\":\"usuario123\",\n  \"fecha_pago\":\"20191123\",\n  \"hora_pago\":\"1233\",\n  \"moneda\":\"ARS\",\n  \"importe_abonado\":\"1000\",\n  \"terminal\":\"A23\",\n  \"numero_transaccion\":\"32234323\",\n  \"fecha_proceso_pf\" : \"20191124\"\n}"
+						},
+						"url": {
+							"raw": "{{resttx2_url}}/notifications/avisodepagopagofacil",
+							"host": [
+								"{{resttx2_url}}"
+							],
+							"path": [
+								"notifications",
+								"avisodepagopagofacil"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "13d - Aviso de Reversa - Pago Facil",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n  \"id_operacion\": \"{{cod_trx}}\",\n  \"medio_pago\":\"cup\",\n  \"codigo_barras\":\"{{barcode}}\",\n  \"tipo_documento\":\"FAA\",\n  \"numero_documento\":\"001-45-6688\",\n  \"numero_usuario\":\"usuario123\",\n  \"fecha_pago\":\"20141123\",\n  \"hora_pago\":\"1233\",\n  \"moneda\":\"ARS\",\n  \"importe_abonado\":\"12100\",\n  \"terminal\":\"A23\",\n  \"numero_transaccion\":\"32234323\",\n  \"fecha_proceso_pf\" : \"20141124\"\n}"
+						},
+						"url": {
+							"raw": "{{resttx2_url}}/notifications/avisodereversapagofacil",
+							"host": [
+								"{{resttx2_url}}"
+							],
+							"path": [
+								"notifications",
+								"avisodereversapagofacil"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "13e -  Pago offline - Pago Facil PCI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id);",
+									"postman.setEnvironmentVariable(\"barcode\", jsonData.barcode);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_mode\": \"offline\",\n    \"payment_method_id\" : 25, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"installments\" : \"02\",\n    \"invoice_expiration\" : \"191223\",\n    \"cod_p3\": \"12\",\n    \"cod_p4\": \"012\",\n    \"client\": \"12345678\",\n    \"surcharge\" : 1200,\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "14a - Creación de token - pago offline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "14b - Pago offline - Cobro Express",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"{{randomExpress}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 51,\n    \"payment_mode\" : \"offline\",\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"invoice_expiration\" : \"191123\",\n    \"client\": \"12345678\",\n    \"surcharge\": 1001,\n    \"second_invoice_expiration\" : \"191223\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "14c - Pago offline - Cobro Express - PCI",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(randomExpress);",
+									"console.log(jsonData);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{randomExpress}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 51, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"invoice_expiration\" : \"191123\",\n    \"client\": \"12345678\",\n    \"surcharge\": 1001,\n    \"second_invoice_expiration\" : \"191223\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "15a - Creación de token - pago offline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "15b - Pago offline - Caja de Pagos",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"{{randomExpress}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_mode\": \"offline\",\n    \"payment_method_id\" : 48, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"invoice_expiration\" : \"191223\",\n    \"cod_p3\": \"1\",\n    \"client\": \"12345678\",\n    \"second_invoice_expiration\" : \"191223\",\n    \"surcharge\" : 1200,\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "15c - Pago offline - Caja de Pagos PCI",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"postman.setGlobalVariable('randomExpress', Math.floor(Math.random() * 90000000 + 10000000));"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{randomExpress}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_mode\": \"offline\",\n    \"payment_method_id\" : 48, \n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"invoice_expiration\" : \"191223\",\n    \"cod_p3\": \"1\",\n    \"client\": \"12345678\",\n    \"second_invoice_expiration\" : \"191223\",\n    \"surcharge\" : 1200,\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "16a - Creación de token - pago offline",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "16c- Pago offline - PMC",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				},
+				{
+					"name": "16d - Pago offline - PMC PCI",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reestablecimiento de la configuración - final",
+			"description": "",
+			"item": [
+				{
+					"name": "final - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "final - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
