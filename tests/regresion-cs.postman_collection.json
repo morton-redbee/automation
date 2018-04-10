@@ -518,7 +518,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 1,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 1,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -804,9 +804,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "6460271e-1991-4a1f-926b-c8ba7f393b8c",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -1056,9 +1073,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "b8d82cdc-70c4-401e-b7f5-9ddd9f3c28e8",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -1129,7 +1163,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -1415,9 +1449,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "2e6aa37e-77a0-49af-90f9-7457c7c9d558",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -1667,9 +1718,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "86511531-a8c5-429a-8451-19cf6de9a0e6",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -1740,7 +1808,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 3,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 3,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -2026,9 +2094,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "27a8e2c2-910d-407e-8c23-81f2db189dc2",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -2278,9 +2363,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "a33c435f-f462-4d9b-8381-640d68abfd69",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -2351,7 +2453,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 4,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 4,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -2637,9 +2739,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "2ea1b472-6e69-4708-b413-6a7c3cd0deb6",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -2889,9 +3008,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "34d1e28f-9518-4ead-93d7-b4ccbf99beaf",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -2962,7 +3098,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 5,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 5,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"N\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -3248,9 +3384,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "dc7a62cf-3c65-4a98-848b-cb9b4f2e21aa",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -3500,9 +3653,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "9ff842a0-31f2-4636-8ea2-b6016143f9f6",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -3752,9 +3922,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "ddc7d51d-b39c-40a0-ab6c-b287419706d7",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}

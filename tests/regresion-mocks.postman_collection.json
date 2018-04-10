@@ -193,7 +193,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"security_key\": \"7INYIZLob1xKu4W4xhE7l8HYRgf13MQhIA8XtuRCxW0L9VNqIHXBJCvWMbHzbbv0n771oi3jMEL27xOtt0uD5fbeBRqR0N66QevdhXAQ+5KFHJvmoBZ3Xgq2jFTltP6flXN6PPlN3X6XYmPuBhJoqlrFfuo7sD24pM0qRbZFeRf1/13ZrYA+K3vNe6ATvyHr6TF2jMiK8RkstPl97AE95l7B2zYqxWpL2cpPh/WAFFReOFkgqnpo2NYqe3ZRfcYFMBTpJtmZVJu5gnEDBY7cxCp8jmLz5V9cphX5FO19KaBPkMvHFvVjGcXp8JOcL162sNo5hcKZNFCFIZ3ZFizVnQ==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"S\"\n}"
+							"raw": "{\n   \"site\": \"{{site_mocks}}\",\n   \"security_key\": \"8NEqct3s5d06HyjY088ICnqazVVDcYWt9Y2HTh1E1Z7ZO6DOWoi714KnviRtBGl4wZ+UVO4FrXWffGP14q+XYE4oSP5KkdbQRt4FRDNGbh6CftnJNivAtzqpvXkxEG63R9H/pAM2fwWJE7rqxVj+g7rRi566APJSfqwcK+bixnoVkLFj2QVwZwvm8OFcAN9C7qbSTyNI0iDLVbNhqf05LQBtAPjpgL9f4z6KI1AneGfDfanCA4wn6FWFrJS4tr1B6+724nko94IIhbxjH5CetPO6k1tttMOsYWwYhDNmapMrSTgP2jmBlrtg8aeZF0est8mB/9GcsQWh4o6Mymrnvw==\",\n   \"modelo\" : 2,\n   \"mid\" : \"decidir_agregador\",\n   \"rubro\" : 2,\n   \"continuar\" : \"N\",\n   \"reverso\" : \"S\"\n}"
 						},
 						"url": {
 							"raw": "{{qapi_url}}/sites/cs",
@@ -311,9 +311,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "33dc2612-fd65-4ce1-9f1a-022ee0c19bc0",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -497,9 +514,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "556c3bbf-913a-4343-a41f-acba9054fb3e",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -675,9 +709,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "d27dc0c0-5d99-4050-9562-9799780c6726",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -769,9 +820,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "085fbcdf-c285-4892-91a7-cdbf1a0ff4b2",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -862,9 +930,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "0d58119b-2d34-43f9-b100-fe007d84606e",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -953,9 +1038,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "b2451c3b-2027-482e-92fd-5bdba37fa745",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}
@@ -1044,9 +1146,26 @@
 						{
 							"listen": "test",
 							"script": {
+								"id": "1ce6cb8a-f44b-4f34-b418-3fd3d98c4f0d",
 								"type": "text/javascript",
 								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
 								]
 							}
 						}

@@ -831,7 +831,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "9f560da9-3db0-427b-81f1-6cdae0fc9501",
+								"id": "480c914b-de09-4069-a41c-7f46797aac7e",
 								"type": "text/javascript",
 								"exec": [
 									"if (responseBody) {",
@@ -856,7 +856,7 @@
 									"",
 									"} else {",
 									"",
-									"    tests[\"Repeated operation error code\"] = jsonData.validation_errors[0].code === \"repeated\" && jsonData.validation_errors[0].param === \"nro_operacion\";",
+									"    tests[\"Repeated operation error code\"] = jsonData.validation_errors[0].code === \"repeated\" && jsonData.validation_errors[0].param === \"site_transaction_id\";",
 									"    ",
 									"    if (jsonData.id) {",
 									"        console.log('Se creó el pago con id ' + jsonData.id);",
@@ -903,7 +903,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"{{siteTransactionId}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+							"raw": "{\n  \"customer\": {\n      \"id\": \"morton\"\n  },\n   \"site_transaction_id\": \"{{siteTransactionId}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20000,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"single\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n     ],\n   \"fraud_detection\": {\n    \"send_to_cs\": false\n   }\n}"
 						},
 						"url": {
 							"raw": "{{base_url}}/api/v2/payments",
