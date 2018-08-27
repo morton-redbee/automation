@@ -1,0 +1,694 @@
+{
+	"info": {
+		"name": "Regresión - MPOS",
+		"_postman_id": "160a580c-c19f-a0d8-cb17-1b3bad62b3a5",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Reestablecimiento de la configuracion",
+			"description": "",
+			"item": [
+				{
+					"name": "00a - QAPI unset CS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/cs",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"cs"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00b - QAPI delete subsites",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/subsites",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"subsites"
+							]
+						},
+						"description": "POST call to create subsites in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00c - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "00d - QAPI unset Dos Pasos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"medio_de_pago\" : \"1\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/dospasos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"dospasos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00e - QAPI unset Agregador",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/agregador",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"agregador"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "1 - QAPI unset MPOS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/mpos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"mpos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "00f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pago con MPOS",
+			"description": "",
+			"item": [
+				{
+					"name": "1a - QAPI set MPOS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/mpos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"mpos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "1b - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1c - Pago MPOS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyPCI}}"
+							},
+							{
+								"key": "X-Consumer-Username",
+								"value": "28464383_pci"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"card_data\": {\n     \"security_code\" : \"123\",\n     \"card_holder_identification\" : {\n         \"type\" : \"dni\",\n         \"number\" : \"23968498\"\n     },\n     \"card_track_info\": {\n      \"card_track_1\": \"B4509790112684851^Valentin Santiago Gomez^2010datosdiscrecionales\",\n      \"card_track_2\": \"4509790112684851=2010datosdiscrec\",\n      \"input_mode\": \"021\"\n     }\n   },\n   \n   \"site_transaction_id\" : \"regr mpos {{$timestamp}}\",\n   \"payment_method_id\" : 1,\n   \"bin\" : \"450979\",\n   \"amount\" : 50000,\n   \"currency\" : \"ARS\",\n   \"installments\" : 1,\n   \"description\" : \"prueba\", \n   \"establishment_name\": \"pruebamm\",\n   \"payment_type\" : \"single\",\n   \"sub_payments\" : [\n         {\n         \"site_id\": \"28464383\",\n         \"installments\": 5,\n         \"amount\": 20000\n      },\n      {\n         \"site_id\": \"28464384\",\n         \"installments\": 5,\n         \"amount\": 20000\n      },\n      {\n         \"site_id\": \"28464385\",\n         \"installments\": 6,\n         \"amount\": 10000\n      }\n   ]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "1d - QAPI check DB",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"if (responseBody) {",
+									"        ",
+									"    tests[\"Status code is 200\"] = responseCode.code === 200;",
+									"",
+									"     if (!tests[\"Status code is 200\"]) {",
+									"           ",
+									"        console.log('No se recibio el status esperado. Se adjunta el cuerpo de la respuesta:');",
+									"",
+									"        console.log(responseBody);  ",
+									"           ",
+									"    }",
+									"            ",
+									"} else {",
+									"           ",
+									"    console.log('Error al no recibir respuesta.');",
+									"           ",
+									"}"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/tests/db",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"tests",
+								"db"
+							]
+						},
+						"description": "POST check if an operation with these values exists in DB"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reestablecimiento de la configuración - final",
+			"description": "",
+			"item": [
+				{
+					"name": "1 - QAPI unset MPOS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/mpos",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"mpos"
+							]
+						},
+						"description": "POST call to set CS in a certain site"
+					},
+					"response": []
+				},
+				{
+					"name": "05f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
