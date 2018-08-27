@@ -1493,10 +1493,6 @@
 						"method": "DELETE",
 						"header": [
 							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
 								"key": "apikey",
 								"value": "{{keyprivate}}"
 							}
