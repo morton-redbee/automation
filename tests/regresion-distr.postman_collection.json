@@ -1,14 +1,13 @@
 {
 	"info": {
 		"name": "Regresión - pago distribuido",
-		"_postman_id": "dbf8caea-16be-4397-b37b-5aeb44042105",
+		"_postman_id": "60ec0e8d-6131-094d-ca56-1a6a6e18cd99",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Reestablecimiento de la configuracion",
-			"description": "",
 			"item": [
 				{
 					"name": "00a - QAPI unset CS",
@@ -246,8 +245,7 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				}
@@ -255,7 +253,6 @@
 		},
 		{
 			"name": "Pago distribuido por monto",
-			"description": "",
 			"item": [
 				{
 					"name": "02a - QAPI create subsite",
@@ -337,8 +334,7 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -385,8 +381,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -436,8 +431,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -484,7 +478,6 @@
 		},
 		{
 			"name": "Pago distribuido por porcentaje",
-			"description": "",
 			"item": [
 				{
 					"name": "03a - QAPI set Porcentaje",
@@ -566,8 +559,7 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -614,8 +606,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -665,8 +656,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -710,7 +700,7 @@
 					"response": []
 				},
 				{
-					"name": "03e - QAPI unset Porcentaje",
+					"name": "03e - QAPI unset Porcentaje copy",
 					"event": [
 						{
 							"listen": "test",
@@ -749,7 +739,7 @@
 					"response": []
 				},
 				{
-					"name": "03f - Replicate site",
+					"name": "03f - Replicate site copy copy",
 					"event": [
 						{
 							"listen": "test",
@@ -789,8 +779,312 @@
 								"site",
 								"{{site}}"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4a - QAPI set porcentajeSinConsiderarSitioPadre",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
 						},
-						"description": null
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentajeSinConsiderarSitioPadre",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentajeSinConsiderarSitioPadre"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "4b - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4c - Creacion de token pago",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"token\", jsonData.id);",
+									"postman.setEnvironmentVariable(\"bin\", jsonData.bin);",
+									"",
+									"tests[\"Status code is 200\"] = responseCode.code === 201;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4509790112684851\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"19\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/tokens",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4d - Pago distribuida porcentaje OK - Monto del subpago aplica redondeo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+									"",
+									"tests[\"Status code is 201\"] = responseCode.code === 201;",
+									"",
+									"if (responseCode.code != 201) {",
+									"console.log(jsonData);    ",
+									"}",
+									"",
+									"var response = JSON.parse(responseBody);",
+									"var request = JSON.parse(request.data);",
+									"var subsitesList = pm.environment.get(\"subsites\").split(\",\")",
+									"var subsitesCounter = pm.environment.get(\"subsites\").split(\",\").length;",
+									"var subpaymentsCounter = response.sub_payments.length;",
+									"var porcentalAmount = Math.floor(request.amount/subsitesCounter)",
+									"",
+									"pm.test(\"Subpayments quantity are correct\", function () {",
+									"    pm.expect(subpaymentsCounter).to.eql(subsitesCounter);",
+									"});",
+									"",
+									"pm.test(\"Subpayments sites are correct\", function () {",
+									"    for (var siteIndex=0; siteIndex<subsitesList.length; siteIndex++){",
+									"        pm.expect(subsitesList[siteIndex]).to.eql(response.sub_payments[siteIndex].site_id);",
+									"    }",
+									"});",
+									"",
+									"pm.test(\"Amount is correct\", function () {",
+									"    pm.expect(response.amount).to.eql(request.amount);",
+									"});",
+									"",
+									"pm.test(\"Subpayments amount are correct\", function () {",
+									"    //First subpayment receives an extra cent to make redondeo",
+									"    pm.expect(response.sub_payments[0].amount).to.eql(porcentalAmount + 1);",
+									"    ",
+									"    //Another subpayments",
+									"    for (var i=1; i < response.sub_payments.length; i++){",
+									"        pm.expect(response.sub_payments[i].amount).to.eq(porcentalAmount);",
+									"    }",
+									"});",
+									"",
+									"pm.test(\"Subpayments installments are correct\", function () {",
+									"    ",
+									"    for (var i=0; i < response.sub_payments.length; i++){",
+									"        pm.expect(response.sub_payments[i].installments).to.eq(request.installments);",
+									"    }",
+									"});",
+									"",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "apikey",
+								"value": "{{keyprivate}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"user_id\": \"morton\",\n   \"site_transaction_id\": \"auto regr visa {{$timestamp}}\",\n   \"token\": \"{{token}}\",\n   \"payment_method_id\": 1,\n   \"bin\": \"{{bin}}\",\n   \"amount\": 20037,\n   \"currency\": \"ARS\",\n   \"installments\": 1,\n   \"description\": \"Prueba QA\",\n   \"payment_type\": \"distributed\",\n   \"establishment_name\" : \"prueba desa soft\",\n   \"sub_payments\": [\n    ],\n   \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n }"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v2/payments",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v2",
+								"payments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4e - QAPI unset Porcentaje",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"site\": \"{{site}}\"\n}"
+						},
+						"url": {
+							"raw": "{{qapi_url}}/sites/porcentaje",
+							"host": [
+								"{{qapi_url}}"
+							],
+							"path": [
+								"sites",
+								"porcentaje"
+							]
+						},
+						"description": "POST call to set Porcentaje in a certain site and subsites"
+					},
+					"response": []
+				},
+				{
+					"name": "4f - Replicate site",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 200\"] = responseCode.code === 200;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "apikey",
+								"value": "{{keypublic}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{coretx_url}}/replication/site/{{site}}",
+							"host": [
+								"{{coretx_url}}"
+							],
+							"path": [
+								"replication",
+								"site",
+								"{{site}}"
+							]
+						}
 					},
 					"response": []
 				}
@@ -798,7 +1092,6 @@
 		},
 		{
 			"name": "Reestablecimiento de la configuración - final",
-			"description": "",
 			"item": [
 				{
 					"name": "final - QAPI delete subsites",
@@ -880,8 +1173,7 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				}
