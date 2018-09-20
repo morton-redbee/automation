@@ -14,9 +14,9 @@
     "jquery": "^3.2.1",
     "jsdom": "^11.0.0",
     "mysql": "^2.13.0",
-    "newman": "^3.6.0",
+    "newman": "^4.1.0",
     "promise": "^7.1.1",
     "require-env": "^0.1.0",
-    "commander" : "2.11.0"
+    "commander": "2.11.0"
   }
 }
