@@ -1,14 +1,12 @@
 {
 	"info": {
+		"_postman_id": "c657aa3f-2f22-41d7-bcac-f640eef2e946",
 		"name": "Regresión - pago offline",
-		"_postman_id": "5251884a-294b-e75b-3fc2-7248806d0561",
-		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "Reestablecimiento de la configuracion",
-			"description": "",
 			"item": [
 				{
 					"name": "00a - QAPI unset CS",
@@ -246,8 +244,7 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				}
@@ -255,8 +252,587 @@
 		},
 		{
 			"name": "Pago offline",
-			"description": "",
 			"item": [
+				{
+					"name": "Pago offline - PMC",
+					"item": [
+						{
+							"name": "16a - PMC - Creación de token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c5d16c86-360f-4af5-834e-6eed4101d1d2",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+											"",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keypublic}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/tokens",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16b- PMC - Pago offline",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5fd7f36-0dc9-4203-9ada-95968354b511",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+											"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"if (responseCode.code != 201) {",
+											"console.log(jsonData);    ",
+											"}",
+											"",
+											"// Define the JSON Schema",
+											"var pmcResponseSchema = {",
+											"    \"required\": [",
+											"          \"id\", ",
+											"          \"site_transaction_id\",",
+											"          \"payment_method_id\",",
+											"          \"card_brand\",",
+											"          \"amount\",",
+											"          \"status\",",
+											"          \"status_details\",",
+											"          \"customer\",",
+											"          \"bank_id\",",
+											"          \"invoice_expiration\",",
+											"          \"payment_mode\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"id\": {\"type\": 'integer'},",
+											"        \"site_transaction_id\" : {\"type\": 'string'},",
+											"        \"payment_method_id\": {\"type\": 'integer'},",
+											"        \"card_brand\": {\"type\": 'string'},",
+											"        \"amount\": {\"type\":'integer'},",
+											"        \"status\": {\"type\": 'string'},",
+											"        \"status_details\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"ticket\", \"card_authorization_code\", \"address_validation_code\", \"error\"],",
+											"            \"properties\": {",
+											"                \"ticket\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"customer\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"email\"],",
+											"            \"properties\": {",
+											"                \"email\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"bank_id\": {\"type\": 'integer'},",
+											"        \"invoice_expiration\": {\"type\": 'string'},",
+											"        \"payment_mode\": {\"type\": 'string'}",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData,pmcResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1 - QAPI check DB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+								},
+								"url": {
+									"raw": "{{qapi_url}}/tests/db",
+									"host": [
+										"{{qapi_url}}"
+									],
+									"path": [
+										"tests",
+										"db"
+									]
+								},
+								"description": "POST check if an operation with these values exists in DB"
+							},
+							"response": []
+						},
+						{
+							"name": "16c- PMC - Aviso de pago",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8730f94a-d3e0-40f7-8303-a63962006135",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/notify/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"notify",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16d- PMC - Consultar estado de tx - acreditada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fe7f699d-5fcb-4a2e-9cda-6f30f9e266ea",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'accredited'\", function () {",
+											"    pm.expect(response.status).to.eql(\"accredited\");",
+											"    if (response.status != \"accredited\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16e- PMC - Aviso de reversa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e7d37f4-8e3d-42de-87af-5d767012d08a",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/reverse/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"reverse",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16f- PMC - Consultar estado de tx - reversada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8140bf4-dba9-42c9-8e1c-9329e29bbc50",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'reversed'\", function () {",
+											"    pm.expect(response.status).to.eql(\"reversed\");",
+											"    if (response.status != \"reversed\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16g- PMC - Pago offline PCI",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
+											"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+											"",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"if (responseCode.code != 201) {",
+											"console.log(jsonData);    ",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyPCI}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1 - QAPI check DB",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
+								},
+								"url": {
+									"raw": "{{qapi_url}}/tests/db",
+									"host": [
+										"{{qapi_url}}"
+									],
+									"path": [
+										"tests",
+										"db"
+									]
+								},
+								"description": "POST check if an operation with these values exists in DB"
+							},
+							"response": []
+						},
+						{
+							"name": "16h- PMC - Aviso de reversa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fe68d5ee-1d0e-4702-b18a-f48e04e79f5b",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/reverse/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"reverse",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "16j- PMC - Consultar estado de tx - reversada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8140bf4-dba9-42c9-8e1c-9329e29bbc50",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'reversed'\", function () {",
+											"    pm.expect(response.status).to.eql(\"reversed\");",
+											"    if (response.status != \"reversed\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
 				{
 					"name": "12a - Creación de token - pago offline",
 					"event": [
@@ -299,8 +875,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -352,8 +927,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -438,8 +1012,7 @@
 								"notifications",
 								"avisodepagorapipago"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -494,8 +1067,7 @@
 								"notifications",
 								"avisodereversarapipago"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -547,8 +1119,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -633,8 +1204,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -686,8 +1256,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -769,8 +1338,7 @@
 								"notifications",
 								"avisodepagopagofacil"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -814,8 +1382,7 @@
 								"notifications",
 								"avisodereversapagofacil"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -867,8 +1434,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -953,8 +1519,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -1014,8 +1579,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -1115,8 +1679,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -1201,8 +1764,7 @@
 								"v2",
 								"tokens"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -1261,8 +1823,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				},
@@ -1361,236 +1922,7 @@
 								"v2",
 								"payments"
 							]
-						},
-						"description": null
-					},
-					"response": []
-				},
-				{
-					"name": "1 - QAPI check DB",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
 						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
-						},
-						"url": {
-							"raw": "{{qapi_url}}/tests/db",
-							"host": [
-								"{{qapi_url}}"
-							],
-							"path": [
-								"tests",
-								"db"
-							]
-						},
-						"description": "POST check if an operation with these values exists in DB"
-					},
-					"response": []
-				},
-				{
-					"name": "16a - Creación de token - pago offline",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"token\", jsonData.id)",
-									"",
-									"tests[\"Status code is 200\"] = responseCode.code === 201;"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "apikey",
-								"value": "{{keypublic}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/api/v2/tokens",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"v2",
-								"tokens"
-							]
-						},
-						"description": null
-					},
-					"response": []
-				},
-				{
-					"name": "16c- Pago offline - PMC",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
-									"",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"",
-									"if (responseCode.code != 201) {",
-									"console.log(jsonData);    ",
-									"}"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "apikey",
-								"value": "{{keyprivate}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/api/v2/payments",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"v2",
-								"payments"
-							]
-						},
-						"description": null
-					},
-					"response": []
-				},
-				{
-					"name": "1 - QAPI check DB",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"type": "text/javascript",
-								"exec": [
-									"tests[\"Status code is 200\"] = responseCode.code === 200;"
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n   \"site\": \"{{site}}\",\n   \"charge_id\": \"{{chargeId}}\"\n}"
-						},
-						"url": {
-							"raw": "{{qapi_url}}/tests/db",
-							"host": [
-								"{{qapi_url}}"
-							],
-							"path": [
-								"tests",
-								"db"
-							]
-						},
-						"description": "POST check if an operation with these values exists in DB"
-					},
-					"response": []
-				},
-				{
-					"name": "16d - Pago offline - PMC PCI",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"chargeId\", jsonData.id);",
-									"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
-									"",
-									"tests[\"Status code is 201\"] = responseCode.code === 201;",
-									"",
-									"if (responseCode.code != 201) {",
-									"console.log(jsonData);    ",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "apikey",
-								"value": "{{keyPCI}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}/api/v2/payments",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"v2",
-								"payments"
-							]
-						},
-						"description": null
 					},
 					"response": []
 				},
@@ -1637,7 +1969,6 @@
 		},
 		{
 			"name": "Reestablecimiento de la configuración - final",
-			"description": "",
 			"item": [
 				{
 					"name": "final - QAPI delete subsites",
@@ -1719,12 +2050,33 @@
 								"site",
 								"{{site}}"
 							]
-						},
-						"description": null
+						}
 					},
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "65b56f03-4f98-41ba-9658-bb447698edcf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4c84e0b6-5aa4-4b1a-958f-c8cb80daa00f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
