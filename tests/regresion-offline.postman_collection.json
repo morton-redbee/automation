@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c657aa3f-2f22-41d7-bcac-f640eef2e946",
+		"_postman_id": "4d5e2cc9-e428-4fd5-b965-6559520042a1",
 		"name": "Regresión - pago offline",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -254,7 +254,7 @@
 			"name": "Pago offline",
 			"item": [
 				{
-					"name": "Pago offline - PMC",
+					"name": "PMC",
 					"item": [
 						{
 							"name": "16a - PMC - Creación de token",
@@ -825,6 +825,1135 @@
 										"v2",
 										"payments",
 										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "34c176d3-3b09-4f6c-b945-cbaaebf9ab4e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "826dce51-896d-450c-9998-46e1405dc74a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PMC - Reenvío de aviso de pago sobre tx acreditada",
+					"item": [
+						{
+							"name": "17a - PMC - Creación de token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c5d16c86-360f-4af5-834e-6eed4101d1d2",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+											"",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keypublic}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/tokens",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "17b- PMC - Pago offline",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5fd7f36-0dc9-4203-9ada-95968354b511",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+											"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"if (responseCode.code != 201) {",
+											"console.log(jsonData);    ",
+											"}",
+											"",
+											"// Define the JSON Schema",
+											"var pmcResponseSchema = {",
+											"    \"required\": [",
+											"          \"id\", ",
+											"          \"site_transaction_id\",",
+											"          \"payment_method_id\",",
+											"          \"card_brand\",",
+											"          \"amount\",",
+											"          \"status\",",
+											"          \"status_details\",",
+											"          \"customer\",",
+											"          \"bank_id\",",
+											"          \"invoice_expiration\",",
+											"          \"payment_mode\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"id\": {\"type\": 'integer'},",
+											"        \"site_transaction_id\" : {\"type\": 'string'},",
+											"        \"payment_method_id\": {\"type\": 'integer'},",
+											"        \"card_brand\": {\"type\": 'string'},",
+											"        \"amount\": {\"type\":'integer'},",
+											"        \"status\": {\"type\": 'string'},",
+											"        \"status_details\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"ticket\", \"card_authorization_code\", \"address_validation_code\", \"error\"],",
+											"            \"properties\": {",
+											"                \"ticket\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"customer\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"email\"],",
+											"            \"properties\": {",
+											"                \"email\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"bank_id\": {\"type\": 'integer'},",
+											"        \"invoice_expiration\": {\"type\": 'string'},",
+											"        \"payment_mode\": {\"type\": 'string'}",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData,pmcResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "17c- PMC - Aviso de pago",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8730f94a-d3e0-40f7-8303-a63962006135",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/notify/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"notify",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "17d- PMC - Consultar estado de tx - acreditada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fe7f699d-5fcb-4a2e-9cda-6f30f9e266ea",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'accredited'\", function () {",
+											"    pm.expect(response.status).to.eql(\"accredited\");",
+											"    if (response.status != \"accredited\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "17e- PMC - Reenvío de aviso de pago",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8730f94a-d3e0-40f7-8303-a63962006135",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/notify/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"notify",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "17f- PMC - Consultar estado de tx - acreditada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fe7f699d-5fcb-4a2e-9cda-6f30f9e266ea",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'accredited'\", function () {",
+											"    pm.expect(response.status).to.eql(\"accredited\");",
+											"    if (response.status != \"accredited\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Objetivo: verificar que se cumpla el criterio de aceptación: \"Si una transacción de PMC, se encuentra en estado \"Acreditada\" y se recibe un aviso de pago por parte de Banelco, la transacción se mantiene en estado \"Acreditada\".\n\nPara ello, se realiza una tx PMC y se envía un aviso de pago. Luego, se reenvía otro aviso de pago y se verifica su estado.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9062d186-6276-4ac6-94f1-582864c844cb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b10d28ba-800c-4fff-8121-ae2438d31723",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PMC - Reenvío de aviso de pago y de reversa sobre tx reversada",
+					"item": [
+						{
+							"name": "18a - PMC - Creación de token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c5d16c86-360f-4af5-834e-6eed4101d1d2",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"token\", jsonData.id)",
+											"",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keypublic}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\"customer\" : {\n   \"name\" : \"Santiago Figueroa\",\n   \"identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n   }\n}\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/tokens",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"tokens"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18b- PMC - Pago offline",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e5fd7f36-0dc9-4203-9ada-95968354b511",
+										"type": "text/javascript",
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"postman.setEnvironmentVariable(\"chargeId\", jsonData.id)",
+											"postman.setEnvironmentVariable(\"cod_trx\", jsonData.site_transaction_id)",
+											"tests[\"Status code is 201\"] = responseCode.code === 201;",
+											"",
+											"if (responseCode.code != 201) {",
+											"console.log(jsonData);    ",
+											"}",
+											"",
+											"// Define the JSON Schema",
+											"var pmcResponseSchema = {",
+											"    \"required\": [",
+											"          \"id\", ",
+											"          \"site_transaction_id\",",
+											"          \"payment_method_id\",",
+											"          \"card_brand\",",
+											"          \"amount\",",
+											"          \"status\",",
+											"          \"status_details\",",
+											"          \"customer\",",
+											"          \"bank_id\",",
+											"          \"invoice_expiration\",",
+											"          \"payment_mode\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"id\": {\"type\": 'integer'},",
+											"        \"site_transaction_id\" : {\"type\": 'string'},",
+											"        \"payment_method_id\": {\"type\": 'integer'},",
+											"        \"card_brand\": {\"type\": 'string'},",
+											"        \"amount\": {\"type\":'integer'},",
+											"        \"status\": {\"type\": 'string'},",
+											"        \"status_details\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"ticket\", \"card_authorization_code\", \"address_validation_code\", \"error\"],",
+											"            \"properties\": {",
+											"                \"ticket\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"customer\":{",
+											"            \"type\": 'object',",
+											"            \"required\": [\"email\"],",
+											"            \"properties\": {",
+											"                \"email\": {\"type\": 'string'}",
+											"            }",
+											"        },",
+											"        \"bank_id\": {\"type\": 'integer'},",
+											"        \"invoice_expiration\": {\"type\": 'string'},",
+											"        \"payment_mode\": {\"type\": 'string'}",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData,pmcResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18c- PMC - Aviso de reversa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e7d37f4-8e3d-42de-87af-5d767012d08a",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/reverse/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"reverse",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18d- PMC - Consultar estado de tx - reversada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8140bf4-dba9-42c9-8e1c-9329e29bbc50",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'reversed'\", function () {",
+											"    pm.expect(response.status).to.eql(\"reversed\");",
+											"    if (response.status != \"reversed\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18e- PMC - Aviso de pago",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8730f94a-d3e0-40f7-8303-a63962006135",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/notify/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"notify",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18f- PMC - Consultar estado de tx - reversada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8140bf4-dba9-42c9-8e1c-9329e29bbc50",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'reversed'\", function () {",
+											"    pm.expect(response.status).to.eql(\"reversed\");",
+											"    if (response.status != \"reversed\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18g- PMC - Reenvío de aviso de reversa",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e7d37f4-8e3d-42de-87af-5d767012d08a",
+										"type": "text/javascript",
+										"exec": [
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n}"
+								},
+								"url": {
+									"raw": "{{pmc_url}}/reverse/{{cod_trx}}/commerce/{{pmc_nrodecomercio}}",
+									"host": [
+										"{{pmc_url}}"
+									],
+									"path": [
+										"reverse",
+										"{{cod_trx}}",
+										"commerce",
+										"{{pmc_nrodecomercio}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "18h- PMC - Consultar estado de tx - reversada",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b8140bf4-dba9-42c9-8e1c-9329e29bbc50",
+										"type": "text/javascript",
+										"exec": [
+											"var response = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 200\"] = responseCode.code === 200;",
+											"if (responseCode.code != 200){",
+											"    console.log (\"Response code differs from the expected. Received status code is \" + responseCode.code);",
+											"    console.log (response);",
+											"}",
+											"",
+											"pm.test(\"Assert expected tx status: 'reversed'\", function () {",
+											"    pm.expect(response.status).to.eql(\"reversed\");",
+											"    if (response.status != \"reversed\") {",
+											"        console.log (\"Tx status differs from the expected\");",
+											"        console.log (response);",
+											"    }",
+											"});",
+											""
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyprivate}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments/{{chargeId}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments",
+										"{{chargeId}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "Objetivo: verificar que se cumpla el criterio de aceptación: \"Si Banelco realiza un segundo aviso de reversa sobre la misma transacción, la misma se mantiene en estado \"Reversada\".\n\nPara ello, se realiza una tx PMC y se envía un aviso de reversa. Luego, se envía un aviso de pago y se verifica su estado, y luego se reenvía un aviso de reversa y se verifica el estado.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7fb0c40a-95f7-40e6-8d2c-c082a5b0cb46",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0675b625-7cb8-4be2-8efa-c9a6cc56f3c3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "PMC - Test negativos",
+					"item": [
+						{
+							"name": "19a - PMC - Negativo - Intentar un pago enviando campo vacío",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7f1fa068-eb82-40db-9105-37a3d94666ef",
+										"type": "text/javascript",
+										"exec": [
+											"/* Se envía el campo email con con valor vacío, \"email\":\"\" */",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 400\"] = responseCode.code === 400;",
+											"",
+											"if (responseCode.code != 400) {",
+											"    console.log(jsonData);    ",
+											"}",
+											"",
+											"var pmcBadRequestResponseSchema = {",
+											"    \"required\": [",
+											"          \"error_type\", ",
+											"          \"validation_errors\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"error_type\": {\"type\": 'string'},",
+											"        \"validation_errors\": {",
+											"            \"type\": 'array',",
+											"            \"items\": [",
+											"                        {",
+											"                           \"type\": 'object',",
+											"                            \"required\": [\"code\", \"param\"],",
+											"                            \"properties\": {",
+											"                                \"code\": {\"type\": 'string'},",
+											"                                \"param\": {\"type\": 'string'}",
+											"                            }  ",
+											"                            ",
+											"                        }",
+											"                    ]",
+											"        }",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData, pmcBadRequestResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcBadRequestResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyPCI}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "19b- PMC - Negativo - Intentar pago con campo con formato inválido",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "25047440-3255-45bd-9f60-7bcb133ec962",
+										"type": "text/javascript",
+										"exec": [
+											"/* Se envía el campo bank_id con un valor inválido, \"bank_id:0\" */",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 400\"] = responseCode.code === 400;",
+											"",
+											"if (responseCode.code != 400) {",
+											"    console.log(jsonData);    ",
+											"}",
+											"",
+											"var pmcBadRequestResponseSchema = {",
+											"    \"required\": [",
+											"          \"error_type\", ",
+											"          \"validation_errors\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"error_type\": {\"type\": 'string'},",
+											"        \"validation_errors\": {",
+											"            \"type\": 'array',",
+											"            \"items\": [",
+											"                        {",
+											"                           \"type\": 'object',",
+											"                            \"required\": [\"code\", \"param\"],",
+											"                            \"properties\": {",
+											"                                \"code\": {\"type\": 'string'},",
+											"                                \"param\": {\"type\": 'string'}",
+											"                            }  ",
+											"                            ",
+											"                        }",
+											"                    ]",
+											"        }",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData, pmcBadRequestResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcBadRequestResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyPCI}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 0,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "19c- PMC - Negativo - Intentar pago sin enviar campo obligatorio",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d83de5c2-10f2-46b6-aace-b4f3b8426188",
+										"type": "text/javascript",
+										"exec": [
+											"/* NO Se envía el campo invoice_expiration. */",
+											"",
+											"var jsonData = JSON.parse(responseBody);",
+											"",
+											"tests[\"Status code is 400\"] = responseCode.code === 400;",
+											"",
+											"if (responseCode.code != 400) {",
+											"    console.log(jsonData);    ",
+											"}",
+											"",
+											"var pmcBadRequestResponseSchema = {",
+											"    \"required\": [",
+											"          \"error_type\", ",
+											"          \"validation_errors\"",
+											"    ],",
+											"    \"properties\": {",
+											"        \"error_type\": {\"type\": 'string'},",
+											"        \"validation_errors\": {",
+											"            \"type\": 'array',",
+											"            \"items\": [",
+											"                        {",
+											"                           \"type\": 'object',",
+											"                            \"required\": [\"code\", \"param\"],",
+											"                            \"properties\": {",
+											"                                \"code\": {\"type\": 'string'},",
+											"                                \"param\": {\"type\": 'string'}",
+											"                            }  ",
+											"                            ",
+											"                        }",
+											"                    ]",
+											"        }",
+											"    }",
+											"};",
+											"",
+											"tests[\"JSON Schema\"] = tv4.validate(jsonData, pmcBadRequestResponseSchema);",
+											"if (!tests[\"JSON Schema\"]){",
+											"    console.log(\"Se detallan los errores encontrados en el formato del JSON: \\n\")        ",
+											"    console.log(tv4.validateMultiple(jsonData, pmcBadRequestResponseSchema))",
+											"    console.log (\"Se detalla el JSON recibido:\")",
+											"    console.log (jsonData)",
+											"}"
+										]
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "apikey",
+										"value": "{{keyPCI}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/api/v2/payments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"payments"
 									]
 								}
 							},
