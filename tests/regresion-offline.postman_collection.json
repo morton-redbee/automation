@@ -1713,10 +1713,10 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7f1fa068-eb82-40db-9105-37a3d94666ef",
+										"id": "3d674eb2-449c-4b9e-8bbb-59d010540bcf",
 										"type": "text/javascript",
 										"exec": [
-											"/* Se envía el campo email con con valor vacío, \"email\":\"\" */",
+											"/* Se envía el campo invoice_expiration con con valor vacío, \"invoice_expiration\":\"\" */",
 											"",
 											"var jsonData = JSON.parse(responseBody);",
 											"",
@@ -1775,7 +1775,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311219 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+									"raw": "{\n  \"customer\" : {\n      \"name\" : \"Nombre Apellido\",\n      \"identification\" : {\n          \"type\" : \"dni\",\n          \"number\" : \"23968498\"\n      }\n  }, \n    \"site_transaction_id\" : \"{{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"santi.figueroa@redb.ee\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/api/v2/payments",
