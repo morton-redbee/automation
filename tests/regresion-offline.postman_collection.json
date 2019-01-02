@@ -388,7 +388,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311222 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/api/v2/payments",
@@ -990,7 +990,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311222 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/api/v2/payments",
@@ -1365,7 +1365,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311218 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
+									"raw": "{\n    \"site_transaction_id\" : \"PMC {{$timestamp}}\",\n    \"token\" : \"{{token}}\",\n    \"payment_method_id\" : 41,\n    \"amount\" : 1000,\n    \"currency\" : \"ARS\",\n    \"email\" : \"asd@asd.com\",\n    \"bank_id\" : 1,\n    \"invoice_expiration\" : \"311222 2359\",\n    \"payment_mode\" : \"offline\",\n       \"fraud_detection\": {\n\t\t\"send_to_cs\": false\n   }\n}"
 								},
 								"url": {
 									"raw": "{{base_url}}/api/v2/payments",
