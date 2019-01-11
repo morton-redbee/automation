@@ -321,9 +321,9 @@
 							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{coretx_url}}/replication/site/{{subsite_2}}",
+							"raw": "{{replicator_url}}/replication/site/{{subsite_2}}",
 							"host": [
-								"{{coretx_url}}"
+								"{{replicator_url}}"
 							],
 							"path": [
 								"replication",
@@ -1729,9 +1729,9 @@
 							"raw": "{\n  \"card_number\" : \"4507990000004905\",\n    \"card_expiration_month\" : \"07\",\n    \"card_expiration_year\" : \"17\", \n    \"security_code\" : \"234\",\n    \"card_holder_name\" : \"Valentin Santiago Gomez\",\n    \"card_holder_identification\" : {\n       \"type\" : \"dni\",\n       \"number\" : \"23968498\"\n    },\n    \"fraud_detection\" : {\n        \"device_unique_identifier\": \"12345\"\n    }\n}"
 						},
 						"url": {
-							"raw": "{{coretx_url}}/replication/site/{{subsite_2}}",
+							"raw": "{{replicator_url}}/replication/site/{{subsite_2}}",
 							"host": [
-								"{{coretx_url}}"
+								"{{replicator_url}}"
 							],
 							"path": [
 								"replication",
